@@ -1,10 +1,10 @@
 ---
-## 0200 Setup an `.arc` project
+## 00 Setup an `.arc` project
 
 Make sure you have `.aws/credentials` setup.
 
 ---
-## 0201 Setup an `.arc` project
+## 01 Setup an `.arc` project
 
 ```bash
 mkdir arc-workshop
@@ -14,7 +14,7 @@ npm init --yes
 ```
 
 ---
-## 0202 Setup an `.arc` project
+## 02 Setup an `.arc` project
 
 Open `package.json` in your fav text editor and add run `scripts`:
 
@@ -30,7 +30,7 @@ Open `package.json` in your fav text editor and add run `scripts`:
 ```
 
 ---
-## 0203 Setup an `.arc` project
+## 03 Setup an `.arc` project
 
 Open `.arc` up in your editor.
 
@@ -45,12 +45,12 @@ get /
 Save `.arc` and in your terminal invoke `npm run create`. 
 
 ---
-## 0204 Setup an `.arc` project
+## 04 Setup an `.arc` project
 
 Buy a domain in the AWS Console &rarr; Route 53 &rarr; Domains. 
 
 ---
-## 0205 Setup an `.arc` project
+## 05 Setup an `.arc` project
 
 Edit `.arc` file with a `@domain` as below.
 

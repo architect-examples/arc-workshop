@@ -5,8 +5,13 @@ arc-workshop
 get /
 get /:page
 
-@domain
-workshop.arc.codes
-
 @tables
+accounts
+  accountID *String
 
+feedbacks
+  accountID *String
+  fbID **String
+
+reactions
+  emojiID *String
