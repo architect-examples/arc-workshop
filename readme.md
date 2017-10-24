@@ -1,8 +1,13 @@
 # Master AWS on Easy Mode with https://arc.codes
 
-Cloud functions have taken the tech industry by storm. Always available, scale transparently, only pay for the compute you use (100% utilization) and deploy instantly with zero downtime. However gettin started is frought with complexity and configuration. In this workshop you will quickly learn all the angles of 'serverless' technology using Amazon Web Services with JSF Architect. 
+Cloud functions have taken the tech industry by storm for many good reasons! 
 
-JSF Architect tames AWS complexity. The workshop will explore end to end development and deployment of four exercises:
+- Scale transparently with no concept of clusters or load balancing
+- Isolated logic so debugging is super easy and side effects constrained
+- Only pay for the compute you use (100% utilization)
+- Deploy instantly with zero downtime
+
+However getting started is frought with complexity and configuration. In this workshop you will quickly learn all the angles of 'serverless' technology using Amazon Web Services tamed with JSF Architect. The workshop will explore end to end development and deployment of four exercises:
 
 - Website on a custom domain with user authentication and state 
 - Function that executes on an interval updating a database record
