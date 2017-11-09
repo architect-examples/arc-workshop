@@ -1,6 +1,9 @@
 @app
 arc-workshop
 
+#@domain
+#workshop.arc.codes
+
 @html
 get /
 get /:page

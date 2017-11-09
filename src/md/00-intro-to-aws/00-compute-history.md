@@ -1,7 +1,5 @@
 ---
-## 0000 Intro to AWS
-
-Amazon.com
+## Amazon.com
 
 - Founded 1994
 - Internet retailer and electronics manufacter
@@ -9,7 +7,7 @@ Amazon.com
 - The original Cloud Vendor
 
 ---
-## 0000 Intro to AWS
+## Intro to AWS
 
 Amazon Web Services
 
@@ -17,7 +15,7 @@ Amazon Web Services
 - Relaunched in 2006 with: S3, SQS and EC2
 
 ---
-## 0000 Intro to AWS
+## Growth
 
 - In 2015, Amazon.com reported AWS was profitable, with sales of $1.57 billion in the first quarter of the year 
 - AWS is predicted to have $13 billion in revenue in 2017
@@ -25,29 +23,26 @@ Amazon Web Services
 > http://www.bbc.co.uk/news/business-32442268
 
 ---
-## 0000 Intro to AWS
+## Marketplace Dominance
 
 Gartner estimated in 2015 that AWS customers are deploying 10x more infrastructure on AWS than the combined adoption of the next 14 providers
 
 > https://www.gartner.com/doc/reprints?id=1-2G2O5FC&ct=150519&st=sb
 
 ---
-## 0000 Intro to AWS
+## Cloud Vendor Philosphy
 
 If you really want to understand AWS you need to read this blog post from Werner Vogels. 
 
 > http://www.allthingsdistributed.com/2016/03/10-lessons-from-10-years-of-aws.html
 
 ---
-## 000 Intro to AWS
+## AWS is the pioneer and leader of the Infrastructure as a Service 
 
-- AWS is the pioneer and leader of the infrastructure as a service market
-- While it currently dominates the market it mostly created new players are emmerging
+While it currently dominates the market it mostly created new players are emmerging
 
 ---
-## 000 Intro to AWS
-
-Worth evaluating and monitoring:
+## Evaluate and Monitor
 
 - Microsoft Azure
 - Google Cloud Platform
