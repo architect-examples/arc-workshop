@@ -1,0 +1,6 @@
+{
+  "name": "arc-workshop-get-000page",
+  "dependencies": {
+    "@architect/functions": "^1.6.2"
+  }
+}

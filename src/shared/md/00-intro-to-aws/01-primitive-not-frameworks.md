@@ -22,7 +22,7 @@ This is a fantastic mental model for the serverless renaissance introduced by We
 
 werner pic and quote here
 
-
+---
 ## Primatives not Frameworks
 
 Talk about what werner meant here.
@@ -132,4 +132,4 @@ Building an **App** is building a non generalized **Framework** for your **Produ
 - Cloud tech brings delivery right to the doorstep of dev
 - Devops is a loose collection of principles and ever-changing implementing practices
 
-**The cloud does not negate princples; it's just a new player in our ever-changing implementing practices**
+**The cloud does not negate principles; it's just a new player in our ever-changing implementing practices**

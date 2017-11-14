@@ -8,13 +8,13 @@ arc-workshop
 get /
 get /:page
 
-@tables
-accounts
-  accountID *String
+#@tables
+#accounts
+#  accountID *String
 
-feedbacks
-  accountID *String
-  fbID **String
+#feedbacks
+#  accountID *String
+#  fbID **String
 
-reactions
-  emojiID *String
+#reactions
+#  emojiID *String

@@ -1,0 +1,6 @@
+{
+  "name": "arc-workshop-get-index",
+  "dependencies": {
+    "@architect/functions": "^1.6.2"
+  }
+}
