@@ -1,8 +1,4 @@
 var arc = require('@architect/functions')
+var render = require('@architect/shared/md')
 
-function route(req, res) {
-  console.log(JSON.stringify(req, null, 2))
-  res({html:`hello world`})
-}
-
-exports.handler = arc.html.get(route)
+exports.handler = arc.html.get(render)

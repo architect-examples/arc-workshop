@@ -1,22 +1,11 @@
-var fs = require('fs')
-var path = require('path')
-var md = require('marked')
-
-function _render(filename) {
-  var html =  md(fs.readFileSync(path.join(__dirname, filename)).toString())
-  var css = fs.readFileSync(path.join(__dirname, 'index.css'))
-  return `
-<!doctype html>  
-<html>
-<head>
-<style>${css}</style>
-</head>
-<body>${html}</body>
-</html>`
-}
+var _empty = require('./_empty-html')
+var _presentation = require('./_presentation-html')
+var _exercise = require('./_exercise-html')
 
 module.exports = function render(req, res, next) {
-  res({
-    html: req.path === '/'? _render('index.md') : _render(req.path)
-  })
+  var html = ''
+  if (req.path === '/') html = _empty('index.md')
+  else if (req.path.startsWith('/00') || req.path.startsWith('/01')) html = _presentation(req)
+  else html = _exercise(req)
+  res({html})
 }

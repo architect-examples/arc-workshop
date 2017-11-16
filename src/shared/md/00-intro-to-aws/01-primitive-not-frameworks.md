@@ -1,4 +1,3 @@
----
 ## Preface: Mental Models
 
 In physics we describe light in terms of particals and waves. Neither of these things are precisely true but both are useful *models* for thinking about how light works. A mental model is way of approaching thinking around a how a particular idea or topic works. It is a technique of self directed empathy to aide in understanding complex systems better and make better decisions for creating desirable outcomes in those systems.
@@ -48,13 +47,43 @@ Talk about what werner meant here.
 ---
 ## Mental Model
 
-| Primative  | Self Managed | Fully Managed
-| ---------- | ------------ | ------
-| Compute    | Heroku       | Lambda       | Transparent upgrading, Auto Scaling pay per use
-| Blob Store | Filesystem   | S3           | Transparent upgrading, Auto Scaling pay per use
-| Database   | Postgres     | DyanmoDB     | Configured auto scaling pay reads/writes provisinoed capacity
-| HTTP       | Express      | API Gateway  | Completely transparent pay per use
-| Messaging  | Redis        | SNS          | Pay per use
+<table>
+<tr> 
+  <td>Primative</td>
+  <td>Self Managed</td>
+  <td>Fully Managed</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td>Compute</td>
+  <td>Heroku</td>
+  <td>Lambda</td>
+  <td>Transparent upgrading, Auto Scaling pay per use</td>
+</tr>
+<tr>
+  <td>Blob Store</td>
+  <td>Filesystem</td>
+  <td>S3 </td>
+  <td>Transparent upgrading, Auto Scaling pay per use    </td>
+</tr>
+<tr>
+  <td>Database</td>
+  <td>Postgres</td>
+  <td>DyanmoDB </td>
+  <td>Configured auto scaling pay reads/writes provisinoed capacity</td>
+</tr>
+<tr>
+  <td>HTTP</td>
+  <td>Express</td>
+  <td>API Gateway</td>
+  <td>Completely transparent pay per use</td>
+<tr>
+  <td>Messaging</td>
+  <td>Redis</td>
+  <td>SNS</td>
+  <td>Pay per use</td>
+</tr>
+</table>
 
 ---
 ## Managed vs Unmanged

@@ -1,10 +1,10 @@
-# Master Amazon Web Services with [JSF Architect](https://arc.codes)
+# Master Amazon Web Services with [JSF Architect](https://arc.codes) 🎉
 
 > Provision and deploy cloud infrastructure with a simple plaintext manifest 
 
 <div class=hero>
   <section>
-    <h2>Exercises</h2>
+    <h2>🏋️‍♀️ Exercises</h2>
     <ul>
       <li>✅ Stateful website on a with user auth on a custom domain
       <li>✅ Function that executes on an interval 
@@ -13,7 +13,7 @@
     </ul>
   </section>
   <section>
-    <h2>Superpowers Unlocked</h2>
+    <h2>💡 Superpowers Unlocked</h2>
     <ul>
     <li>📈 Scale without clusters, load balancing or provisioning
     <li>🔬 Isolated logic with side effects constrained
@@ -22,7 +22,7 @@
     </ul>
   </section>
   <section>
-    <h2>Prerequisites</h2>
+    <h2>🎓 Prerequisites</h2>
     <ul>
     <li>⭐️ Comfortable with JavaScript and the NodeJS runtime
     <li>⭐️ Node `8.9.1` and npm `5.5.1` (NOTE: Lambda currently runs Node `6.10.x`)
@@ -38,7 +38,7 @@
 | ----- | ----- | ----------------------------------------------------------------------------- | --------------------------------------------------------------------- |
 |  8:30 |  9:00 | 🎺  [A Brief Introduction to Amazon Web Services](/00-intro-to-aws)            | &nbsp;                                                                |
 |  9:00 |  9:30 | 🎺  [Introduction to JSF Architect](/01-intro-to-arc)                          | &nbsp;                                                                |
-|  9:30 | 10:00 | 🌟  [Intro Web Dev: HTML and JSON with API Gateway](/02-intro-to-web-pt1)      | `GET` hello worlds; `req._url`; shared layouts                        |
+|  9:30 | 10:00 | 🌟  [Intro Web Dev: HTML and JSON with API Gateway](/02-intro-to-web-pt1)      | `GET` hello worlds; `req._url`; shared layouts and nodemon            |
 | 10:00 | 10:30 | 🌟  [Intro Web Dev: Custom Domains with Route53 DNS](/02-intro-to-web-pt2)     | `POST` counter to save state in session                               |
 | 10:30 | 11:00 | _Coffee Break_                                                                | &nbsp;                                                                |
 | 11:00 | 11:30 | 🌟  [Test Driven Intro to DynamoDB: Setup and DB Design](/03-intro-to-ddb-pt1) | keys, one-to-many, many-to-many, reate tables, sandbox; list tables   | 
