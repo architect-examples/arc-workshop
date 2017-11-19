@@ -15,8 +15,7 @@
 - Relaunched in 2006 with: S3, SQS and EC2
 
 ---
-## Growth
-
+## 📈  Epic Growth 
 - In 2015, [Amazon.com reported AWS was profitable](http://www.bbc.co.uk/news/business-32442268), with sales of $1.57 billion in the first quarter of the year 
 - AWS is predicted to have $13 billion in revenue in 2017
 
@@ -55,28 +54,28 @@ Servers &rarr; Virtual Machines &rarr; Containers &rarr; _Functions_
 - They commodified to the point that renting them became more cost effective
  
 ---
-## Virtual Machines
+## 👾 Virtual Machines
 
 - Eventually we rented virtual machines; small slices of the old physical pie
 - Virtual machines are large, difficult to manage/update/backup/etc, they are slow to startup
 
 ---
-## Containers
+## 👾👾  Containers
 - Share the benefits of VMs 
 - Coldstart speed is in milliseconds
 
 ---
 ## Servers Stuff Happens…
 
-- stuff goes down &rarr; region and/or provider failover time in a DNS window
-- stuff gets throttled &rarr; retrys and timeouts are par for the course
-- stuff gets spiked &rarr; means you have to figure out load balancing big ass fleets of servers
-- stuff gets shipped &rarr; means you have to have zero downtime deploys of those big ass fleets of servers
+- Stuff goes down &rarr; region and/or provider failover time in a DNS window
+- Stuff gets throttled &rarr; retrys and timeouts are par for the course
+- Stuff gets spiked &rarr; means you have to figure out load balancing big ass fleets of servers
+- Stuff gets shipped &rarr; means you have to have zero downtime deploys of those big ass fleets of servers
 
 ---
 ## Flashback to 2014
 
-AWS Lambda ships in 2014 the idea that the smallest unite of compute is a Function
+AWS Lambda ships in 2014 the idea that the **smallest unite of compute is a Function**
 
 ---
 It is important to notice the _server_ metaphor is not longer the baseline infrastructure primative for compute in this model

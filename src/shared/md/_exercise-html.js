@@ -1,12 +1,44 @@
-module.exports = function _exerciseHTML(body) {
+var path = require('path')
+var md = require('marked')
+var glob = require('glob')
+var fs = require('fs')
+
+function up(s) {
+  if (s === 'api') return 'API'
+  if (s === 'oauth') return 'oAuth'
+  return s.charAt(0).toUpperCase() + s.slice(1)
+}
+
+module.exports = function _exerciseHTML(req) {
+  var title = req.path.split('-').slice(1).map(up).join(' ').replace('/', '')
+  var contents = glob.sync(`${path.join(__dirname, req.path.replace('/', ''))}/*`)
+  var paths = c=> c.split('shared/md')[1].replace('.md', '')
+  var menus = contents.map(paths).map(menu).join('')
+  var body = ''
+  contents.forEach(p=> {
+    var bits = p.split('/')
+    var last = bits[bits.length - 1].replace('.md', '')
+    body += `<h1 id=${last}>${last.split('-').slice(1).map(up).join(' ')}</h1>`
+    body += md(fs.readFileSync(p).toString())
+  })
+
+  function menu(p) {
+    var bits = p.split('/')
+    var last = bits[bits.length - 1].replace('.md', '')
+    var fmt = p=> p.replace(req.path, '').split('-').slice(1).map(up).join(' ')
+    var href = `#${last}`
+    var title = fmt(p)
+    return `<li><a href=${href}>${title}</a></li>`
+  }
+
   return `
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset=utf-8>
+  <meta name=viewport content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Collapsible sidebar using Bootstrap 3</title>
+  <title>${title}</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <style>${style}</style>
 </head>
@@ -15,99 +47,45 @@ module.exports = function _exerciseHTML(body) {
 
   <nav id="sidebar">
     <div class="sidebar-header">
-      <h3>Intro Web Dev</h3>
+      <h3>${title}</h3>
     </div>
-
     <ul class="list-unstyled components">
-                    <p>Dummy Heading</p>
-                    <li class="active">
-                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Home</a>
-                        <ul class="collapse list-unstyled" id="homeSubmenu">
-                            <li><a href="#">Home 1</a></li>
-                            <li><a href="#">Home 2</a></li>
-                            <li><a href="#">Home 3</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">About</a>
-                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
-                        <ul class="collapse list-unstyled" id="pageSubmenu">
-                            <li><a href="#">Page 1</a></li>
-                            <li><a href="#">Page 2</a></li>
-                            <li><a href="#">Page 3</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">Portfolio</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>
+    ${menus}
     </ul>
+  </nav>
 
-            </nav>
-
-            <!-- Page Content Holder -->
-            <div id="content">
-
-                <nav class="navbar navbar-default">
-                    <div class="container-fluid">
-
-                        <div class="navbar-header">
-                            <button type="button" id="sidebarCollapse" class="navbar-btn">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </button>
-                        </div>
-
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a href="#">View Source on Github</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-
-                <h2>Collapsible Sidebar Using Bootstrap 3</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-                <div class="line"></div>
-
-                <h2>Lorem Ipsum Dolor</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-                <div class="line"></div>
-
-                <h2>Lorem Ipsum Dolor</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-                <div class="line"></div>
-
-                <h3>Lorem Ipsum Dolor</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-        </div>
-
-
-
-
-
-        <!-- jQuery CDN -->
-         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-         <!-- Bootstrap Js CDN -->
-         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-         <script type="text/javascript">
-             $(document).ready(function () {
-                 $('#sidebarCollapse').on('click', function () {
-                     $('#sidebar').toggleClass('active');
-                     $(this).toggleClass('active');
-                 });
-             });
-         </script>
-    </body>
+  <div id="content">
+    <nav class="navbar navbar-default">
+    <div class="container-fluid">
+    <div class="navbar-header">
+    <button type="button" id="sidebarCollapse" class="navbar-btn">
+    <span></span>
+    <span></span>
+    <span></span>
+    </button>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav navbar-right">
+    <li><a href=/>🗓  Back to Schedule</a></li>
+    <li><a href=https://github.com/arc-repos/arc-workshop>🔬 View Source on Github</a></li>
+    </ul>
+    </div>
+    </div>
+    </nav>
+    ${body}
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function() {
+  $('#sidebarCollapse').on('click', function() {
+    $('#sidebar').toggleClass('active')
+    $(this).toggleClass('active')
+  })
+})
+</script>
+</body>
 </html>
 `
 }
@@ -129,8 +107,8 @@ p {
 }
 
 a, a:hover, a:focus {
-    color: inherit;
-    text-decoration: none;
+   /* color: inherit;
+    text-decoration: none;*/
     transition: all 0.3s;
 }
 
@@ -168,8 +146,8 @@ a, a:hover, a:focus {
 #sidebar {
     min-width: 250px;
     max-width: 250px;
-    background: #7386D5;
-    color: #fff;
+    background: #2A2A2E;
+    color: #75BFF2;
     transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
     transform-origin: bottom left;
 }
@@ -180,13 +158,14 @@ a, a:hover, a:focus {
 }
 
 #sidebar .sidebar-header {
-    padding: 20px;
-    background: #6d7fcc;
+  padding: 20px;
+  background: #40444D;
+  color:#F07AE9;
+  text-align:center;
 }
 
 #sidebar ul.components {
     padding: 20px 0;
-    border-bottom: 1px solid #47748b;
 }
 
 #sidebar ul p {
@@ -195,13 +174,16 @@ a, a:hover, a:focus {
 }
 
 #sidebar ul li a {
-    padding: 10px;
+  text-align:right;
+    padding: 10px 40px 10px;
     font-size: 1.1em;
     display: block;
+    color: inherit;
+    text-decoration: none;
 }
 #sidebar ul li a:hover {
-    color: #7386D5;
-    background: #fff;
+    color: #A985F2;
+    background: black;
 }
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {

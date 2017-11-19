@@ -1,8 +1,7 @@
----
 ## Cloud Ethos
 
-- focus on delivering business value not infrastructure maintenance
-- using guiding principles to inform dev practices 
+- Focus on delivering business value not infrastructure maintenance
+- Using guiding principles to inform dev practices 
 
 ---
 ## *Ops

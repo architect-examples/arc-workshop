@@ -1,15 +1,19 @@
 ## Preface: Mental Models
 
-In physics we describe light in terms of particals and waves. Neither of these things are precisely true but both are useful *models* for thinking about how light works. A mental model is way of approaching thinking around a how a particular idea or topic works. It is a technique of self directed empathy to aide in understanding complex systems better and make better decisions for creating desirable outcomes in those systems.
+In physics we describe light in terms of particals and waves. Neither of these things are precisely true but both are useful *models* for thinking about how light works. 
 
-If making better decisions and thinking about learning sounds interesting to you I highly reccomend reading these links!
+
+---
+## Preface: Mental Models
+A mental model is way of approaching thinking around a how a particular idea or topic works. It is a technique of self directed empathy to aide in understanding complex systems better and make better decisions for creating desirable outcomes in those systems.
+  
+---
+## Preface: Mental Models
+Awesome links:
 
 - https://en.wikipedia.org/wiki/Mental_model
 - https://www.farnamstreetblog.com/mental-models/
 
-A choice quote:
-
-> Mental models are so basic to understanding the world that people are hardly conscious of them.
 
 ---
 ## Primitives not Framworks
@@ -22,7 +26,7 @@ This is a fantastic mental model for the serverless renaissance introduced by We
 werner pic and quote here
 
 ---
-## Primatives not Frameworks
+## Primitives not Frameworks
 
 Talk about what werner meant here.
 
@@ -36,7 +40,7 @@ Talk about what werner meant here.
 - Messaging
 
 ---
-## Primatives
+## Primitives
 
 - Compute &rarr; runtime for all your business logic
 - Blog storage &rarr; static assets, coldstorage of data, etc
@@ -47,12 +51,20 @@ Talk about what werner meant here.
 ---
 ## Mental Model
 
-<table>
+<style>
+table#b tr th {
+  font-size:.6em;
+}
+table#b tr td {
+  font-size:.6em;
+}
+</style>
+<table id=b>
 <tr> 
-  <td>Primative</td>
-  <td>Self Managed</td>
-  <td>Fully Managed</td>
-  <td>&nbsp;</td>
+  <th style=width:150px;>Primative</th>
+  <th style=width:150px;>Self Managed</th>
+  <th style=width:200px;>Fully Managed</th>
+  <th>&nbsp;</th>
 </tr>
 <tr>
   <td>Compute</td>
@@ -88,26 +100,59 @@ Talk about what werner meant here.
 ---
 ## Managed vs Unmanged
 
-Transparent vs Opaque
-Security
-Performance
-Scale
+- Transparent vs Opaque
+- Security
+- Performance
+- Scale
 
-Do you really think you have the ability to commodatize these vectors faster than AWS?
+Can your business commodatize these vectors faster and cheaper than AWS?
 
 ---
 ## Primitives as a Service
 
-A better PaaS?
+A better PaaS? *
+<style>
+table#c tr th {
+  font-size:.6em;
+}
+table#c tr td {
+  font-size:.6em;
+}
+</style>
+<table width=100% id=c>
+<tr> 
+  <th style=width:150px;>Primitive</th>
+  <th style=width:150px;>Product</th>
+</tr>
+<tr>
+  <td>Compute</td>
+  <td>Lambda</td>
+</tr>
+<tr>
+  <td>Blob storage</td>
+  <td>S3</td>
+</tr>
+<tr>
+  <td>Compute</td>
+  <td>Lambda</td>
+</tr>
+<tr>
+  <td>Database</td>
+  <td>DynamoDB</td>
+</tr>
+<tr>
+  <td>HTTP gateway</td>
+  <td>API Gateway, CloudFront, Route53</td>
+</tr>
+<tr>
+  <td>Messaging</td>
+  <td>SNS</td>
+</tr>
+</table>
 
-| -------------------- | ---
-| Compute              | Lambda
-| Blob storage         | S3
-| Database persistence | DynamoDB
-| HTTP gateway         | API Gateway, CloudFront, Route53
-| Messaging            | SNS
-
-> PaaS in popular tech culture mean Platform as a Service; an idea that predicated Lambda
+<blockquote style=width:100%;font-size:.5em;>
+* PaaS in popular tech culture meant Platform as a Service; an idea that predicated Lambda
+</blockquote>
 
 ---
 ## Important!
@@ -129,12 +174,38 @@ AWS is much more serverless than just these services:
 Underlying principle: we can follow a pattern to solve a particular class of problem
 
 ---
-## Patterns are Composed of Primatives
+<h4 style=width:100%;>🔑  Patterns are Composed of Primitives</h4>
 
-| ---------- | -------------------- | --------
-| Model      | Database persistence | DynamoDB
-| View       | S3                   | Blog storage
-| Controller | API Gateway          | HTTP Gateway
+<style>
+table#d tr th {
+  font-size:.6em;
+}
+table#d tr td {
+  font-size:.6em;
+}
+</style>
+<table width=100% id=d>
+<tr>
+  <th>Pattern</th>
+  <th>Primative</th>
+  <th>Product</th>
+</tr>
+<tr> 
+  <td style=width:150px;>Model</td>
+  <td style=width:150px;>Database</td>
+  <td style=width:150px;>DynamoDB</td>
+</tr>
+<tr>
+  <td>View</td>
+  <td>Blob Storage</td>
+  <td>S3</td>
+</tr>
+<tr>
+  <td>Controller</td>
+  <td>HTTP Gateway</td>
+  <td>API Gateway</td>
+</tr>
+</table>
 
 ---
 ## Old Patterns are New Again
@@ -145,20 +216,22 @@ Flyweight &rarr; Fan out
 ---
 ## Composition over Inheritance 
 
-- ✅ Primatives are flexable and compose to powerful solutions
+- ✅ Primitives are flexable and compose to powerful solutions
 - ✅ Frameworks tradeoff flexability for deliberate constraint
-- ✅ Frameworks themselves are composed of Primatives; oft by way Patterns
+- ✅ Frameworks themselves are composed of Primitives; oft by way Patterns
 
 ---
-## Primatives &rarr; Patterns &rarr; App
+## Primitives &rarr; Patterns &rarr; App
 
 Building an **App** is building a non generalized **Framework** for your **Product**
 
 ---
-## Spoiler Alert *Ops: Still A Thing
+## Spoiler: *Ops: Still A Thing
 
 - Devops is about shattering the barrier between dev and delivery
 - Cloud tech brings delivery right to the doorstep of dev
-- Devops is a loose collection of principles and ever-changing implementing practices
+- Loose collection of principles and ever-changing implementing practices *
 
-**The cloud does not negate principles; it's just a new player in our ever-changing implementing practices**
+<blockquote style=width:100%;font-size:.5em;>
+* The cloud does not negate principles; it's just a new player in our ever-changing implementing practices
+</blockquote>
