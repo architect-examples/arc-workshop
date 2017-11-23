@@ -1,4 +1,6 @@
-In ancient times web servers often provided many functions across an application request lifecycle. Things like request validation, logging, authentication, payload compression and more. JSF Architect routes fully support the middleware pattern. In this exercise we'll create some logging middleware and inspect the results in AWS Cloudwatch.
+In ancient times web servers often provided many functions across an application request lifecycle. Things like request validation, logging, authentication, payload compression and more. Eventually those things became configurable. And then some short time after that they became plugins. Nowadays we mostly call this stuff middleware. Express pioneered an excellent middleware interface that  JSF Architect shamelessly adopts. 
+
+In this exercise we'll create some logging middleware and inspect the results in AWS Cloudwatch.
 
 ---
 ### 1. Setup the Middleware

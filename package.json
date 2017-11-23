@@ -6,6 +6,7 @@
   "scripts": {
     "create": "AWS_REGION=us-east-1 AWS_PROFILE=personal arc-create",
     "start": "NODE_ENV=testing AWS_REGION=us-east-1 AWS_PROFILE=personal nodemon --watch src -e js,css,md --exec arc-sandbox",
+    "dns": "AWS_REGION=us-east-1 AWS_PROFILE=personal arc-dns",
     "deploy": "AWS_REGION=us-east-1 AWS_PROFILE=personal arc-prototype-deploy"
   },
   "keywords": [],

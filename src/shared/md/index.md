@@ -34,23 +34,19 @@
 
 ## Schedule
 
-| Start | End   | Slides                                                                    | Notes                                                                 |
-| ----- | ----- | --------------------------------------------------------------------------| --------------------------------------------------------------------- |
-|  8:30 |  9:00 | 🎺  [A Brief Introduction to Amazon Web Services](/00-intro-to-aws)        | Understand the cloud vendor ecosystem and landscape                   |
-|  9:00 |  9:30 | 🎺  [Introduction to JSF Architect](/01-intro-to-arc)                      | Learn how _architecture as text_ trancends _infrastructure as code_   |
-|  9:30 | 10:30 | 🌟  [Intro Web Dev: HTML with API Gateway](/02-intro-to-web)               | `GET` hello worlds; `req._url`; shared layouts and nodemon            |
-| 10:30 | 11:00 | _Coffee Break_                                                            | &nbsp;                                                                |
-| 11:00 | 11:30 | 🌟  [Test Driven Intro to DynamoDB: Setup and DB Design](/03-intro-to-ddb) | keys, one-to-many, many-to-many, reate tables, sandbox; list tables   | 
-| 11:30 | 12:00 | 🌟  [Test Driven Intro to DynamoDB: Reads](/03-intro-to-ddb)               | indexes, query, scan, get, batchRead                                  |
-| 12:00 | 12:30 | 🌟  [Test Driven Intro to DynamoDB: Writes](/03-intro-to-ddb)              | put, update, delete, backWrite                                        |
-| 12:30 |  1:30 | _Lunch_                                                                   | &nbsp;                                                                |
-|  1:30 |  2:00 | 🌟  [Scheduled Functions](/04-replace-cron)                                | ping your domain every five mins and save to dynamo                   | 
-|  2:00 |  2:30 | 🌟  [Build and deploy a JSON API](/04-json-api)                            | impl local restish crud actions                                       |
-|  2:30 |  3:00 | _Coffee Break_                                                            | &nbsp;                                                                | 
-|  3:00 |  3:30 | 🌟  [Build a Slackbot: Setup and Slack API Primer](/05-slackbot-api)       | creds; signin vs addtoslack; actions, options, events and slash urls  |
-|  3:30 |  4:00 | 🌟  [Build a Slackbot: Slash and Mentions](/05-slackbot-api)               | &nbsp;                                                                |
-|  4:00 |  4:30 | 🌟  [Build a Slackbot; Buttons and Menus](/05-slackbot-api)                | &nbsp;                                                                |
-|  4:30 |  5:00 | 🌟  [Closing Thoughts and Next Steps](/06-fin)                             | &nbsp;                                                                |
+| Start | End   | Slides                                                              | Notes                                                                  |
+| ----- | ----- | --------------------------------------------------------------------| ---------------------------------------------------------------------- |
+|  8:30 |  9:00 | 🎺  [A Brief Introduction to Amazon Web Services](/00-intro-to-aws)  | Understand the cloud vendor ecosystem and landscape                    |
+|  9:00 |  9:30 | 🎺  [Introduction to JSF Architect](/01-intro-to-arc)                | Learn how _architecture as text_ trancends _infrastructure as code_    |
+|  9:30 | 10:30 | 🌟  [Intro Web Dev with API Gateway](/02-intro-to-web)               | `GET`, `POST`, sharing code, middleware, session, errors and oauth     |
+| 10:30 | 11:00 | _Coffee Break_                                                      | &nbsp;                                                                 |
+| 11:00 | 12:30 | 🌟  [Test Driven Intro to DynamoDB](/03-intro-to-ddb)                | Setup, db design, reads and writes                                     | 
+| 12:30 |  1:30 | _Lunch_                                                             | &nbsp;                                                                 |
+|  1:30 |  2:00 | 🌟  [Scheduled Functions](/04-replace-cron)                          | Ping your domain every five mins and save to your database             | 
+|  2:00 |  2:30 | 🌟  [Build and deploy a JSON API](/04-json-api)                      | Implement a local JSON API to your data                                |
+|  2:30 |  3:00 | _Coffee Break_                                                      | &nbsp;                                                                 | 
+|  3:00 |  4:30 | 🌟  [Build a Slackbot](/05-slackbot-api)                             | Install, Login, respond to events, actions, options and slash commands |
+|  4:30 |  5:00 | 🌟  [Closing Thoughts and Next Steps](/06-fin)                       | &nbsp;                                                                 |
 
 - 🎺  Presentation
 - 🌟  Presentation &amp; Class Exercise

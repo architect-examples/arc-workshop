@@ -5,13 +5,16 @@ var fs = require('fs')
 
 function up(s) {
   if (s === 'api') return 'API'
+  if (s === 'url') return 'URL'
+  if (s === 'json') return 'JSON'
   if (s === 'oauth') return 'oAuth'
+  if (s === 'ddb') return 'DynamoDB'
   return s.charAt(0).toUpperCase() + s.slice(1)
 }
 
 module.exports = function _exerciseHTML(req) {
-  var title = req.path.split('-').slice(1).map(up).join(' ').replace('/', '')
-  var contents = glob.sync(`${path.join(__dirname, req.path.replace('/', ''))}/*`)
+  var title = req.params.page.split('-').slice(1).map(up).join(' ').replace('/', '')
+  var contents = glob.sync(`${path.join(__dirname, req.params.page.replace('/', ''))}/*`)
   var paths = c=> c.split('shared/md')[1].replace('.md', '')
   var menus = contents.map(paths).map(menu).join('')
   var body = ''
@@ -25,12 +28,18 @@ module.exports = function _exerciseHTML(req) {
   function menu(p) {
     var bits = p.split('/')
     var last = bits[bits.length - 1].replace('.md', '')
-    var fmt = p=> p.replace(req.path, '').split('-').slice(1).map(up).join(' ')
+    var fmt = p=> p.replace(req.params.page, '').split('-').slice(1).map(up).join(' ')
     var href = `#${last}`
     var title = fmt(p)
     return `<li><a href=${href}>${title}</a></li>`
   }
-
+  var testing = false//process.env.NODE_ENV === 'testing'
+  var bootstrap = testing? '/boostrap.css' : 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'
+  var js = {
+    jquery: testing? 'jquery.js' : 'https://code.jquery.com/jquery-1.12.0.min.js',
+    bootstrap: testing? 'boostrap.js' : 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js',
+    prism: testing? 'prism.js' : 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.4/prism.min.js'
+  }
   return `
 <!DOCTYPE html>
 <html>
@@ -39,7 +48,7 @@ module.exports = function _exerciseHTML(req) {
   <meta name=viewport content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>${title}</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href=${bootstrap}>
   <style>${style}</style>
 </head>
 <body>
@@ -75,8 +84,11 @@ module.exports = function _exerciseHTML(req) {
     ${body}
   </div>
 </div>
-<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script src=${js.jquery}></script>
+<script src=${js.bootstrap}></script>
+<script src=${js.prism}></script>
+
 <script>
 $(document).ready(function() {
   $('#sidebarCollapse').on('click', function() {
@@ -99,16 +111,27 @@ body {
 }
 
 p {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.1em;
-    font-weight: 300;
-    line-height: 1.7em;
-    color: #999;
+  margin:1em auto 1em auto;
+}
+
+#content p, #content li {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.4em;
+  font-weight: 300;
+  line-height: 1.7em;
+  color: #999;
+}
+#content blockquote {
+  font-size: .9em;
+  margin: 1em 0; 
+  padding:0 0 0 1em;
+}
+
+#content blockquote p {
+  margin:0;padding:0
 }
 
 a, a:hover, a:focus {
-   /* color: inherit;
-    text-decoration: none;*/
     transition: all 0.3s;
 }
 
@@ -306,4 +329,98 @@ a.article, a.article:hover {
     }
 
 }
+
+pre {
+  background: black;
+  color: #7CC4A9;
+  border: 1px solid green;
+  border-radius: 10px;
+}
+pre code.lang-javascript {
+  background: black;
+}
+
+.token.comment,
+  .token.block-comment,
+  .token.prolog,
+  .token.doctype,
+  .token.cdata {
+      color: #999;
+  }
+
+.token.punctuation {
+    color: #ccc;
+}
+
+.token.tag,
+  .token.attr-name,
+  .token.namespace,
+  .token.deleted {
+      color: #e2777a;
+  }
+
+.token.function-name {
+    color: #6196cc;
+}
+
+.token.boolean,
+  .token.number,
+  .token.function {
+      color: #f08d49;
+  }
+
+.token.property,
+  .token.class-name,
+  .token.constant,
+  .token.symbol {
+      color: #f8c555;
+  }
+
+.token.selector,
+  .token.important,
+  .token.atrule,
+  .token.keyword,
+  .token.builtin {
+      color: #cc99cd;
+  }
+
+.token.string,
+  .token.char,
+  .token.attr-value,
+  .token.regex,
+  .token.variable {
+      color: #7ec699;
+  }
+
+.token.operator,
+  .token.entity,
+  .token.url {
+      color: #67cdcc;
+  }
+
+.token.important,
+  .token.bold {
+      font-weight: bold;
+  }
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}
+
+.token.inserted {
+    color: green;
+}
+
+.token.function {
+  color:rgb(117, 191, 242);;
+}
+
+code {
+  color: #F07AE9;
+}
+
 `
+

@@ -8,7 +8,6 @@ Before we get into the dirty details of oAuth lets setup auto-reloading of our a
 ```
 npm i nodemon --save
 ```
-
 > Normally you'd save things in your directory to devDependencies but since only the modules in `src` get deployed you don't have to worry about that
 
 And edit your `package.json` scripts&rarr;start to read like this:
@@ -64,7 +63,7 @@ Login to the AWS Console and find the Lambdas you need to configure and add the 
 
 - `GITHUB_USERNAME` with a value of your Github useranme
 - `GITHUB_CLIENT_ID` with the value you got from Github above
-- `GITHUB_CLIENT_SECRET` ditto that ☝🏼
+- `GITHUB_CLIENT_SECRET` ditto that ☝
 
 Then open your terminal in the root of you project and run:
 
@@ -119,7 +118,9 @@ This middleware will just redirect us to the root url if we are not logged in. N
 ---
 ### 6. Login Button
 
-The whole oAuth flow is a bit weird. You initiate an oAuth flow by performing an HTTP `GET` to a third party domain. Login is def a global concern so lets add the following to our `src/shared` folder:
+The whole oAuth flow is a little bit weird. You initiate an oAuth flow by performing an HTTP `GET` to a third party domain and if things look good that domain will redirect back also using `GET`. 
+
+Login is def a global concern so lets add the following to our `src/shared` folder:
 
 ```javascript
 // login.js
@@ -220,3 +221,64 @@ exports.handler = arc.html.get(protect, route)
 ```
 
 We can now try to directly navigate to `/protected` before logging in and after to see it working.
+
+
+---
+### 8. Logout
+
+If we have a login we probably want a logout. And the good news is resetting the session is super simple. Lets add a logout route.
+
+```.arc
+@app
+arc-workshop
+
+@domain
+your-domain-here.com
+
+@html
+get /
+get /page/:page
+post /count
+get /wtf
+get /login
+get /protected
+get /logout
+```
+
+And, once again, run `npm run create` to generate the code and deployment Lambdas. Once that completes edit the new logout page:
+
+```javascript
+// ./src/html/get-logout
+var arc = require('@architect/functions')
+
+function route(req, res) {
+  res({
+    session: {},
+    location: req._url('/')
+  })
+}
+
+exports.handler = arc.html.get(route)
+```
+
+Things to notice:
+
+- `session` is a write only meaning _any_ writes to session within a response will overwrite the previous session values
+
+---
+
+# Intro to Web Summary
+
+You've learned a great deal of information in roughly one hour. You've completely tamed API Gateway for `text/html`!
+
+- isolated `staging` and `production` deployments
+- work locally without any internet connection
+- use shared code across your lambda functions
+- create middleware for processing the request pipeline
+- use sessions to add stateful interactions
+- dealing with Error states
+- oAuth flow using Github as the provider
+
+### Next Steps
+
+Next up we're looking at database persistence using DynamoDB

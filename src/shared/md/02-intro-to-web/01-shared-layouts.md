@@ -1,8 +1,8 @@
-We setup an infinitely scaling hello world with zero downtime deployment `staging` and `production` environments. Not bad. Lets make it a bit more interesting. A powerful feature of JSF Achitect is that everything is a function and every function is completely isolated. This feature comes with the tradeoff that often you need to share code between functions. 
+We setup an infinitely scaling "hello world" thing with zero downtime deployment `staging` and `production` environments. Not bad. Lets make it interesting. A powerful feature of JSF Achitect is that everything is a function and that every function is completely isolated. This feature comes with the tradeoff that often you need to share code between functions. 
 
 The fastest and easiest way JSF Architect provides for sharing code is automatically mapping `./src/shared` to `@architect/shared` for all functions defined by a project `.arc` file. This works great but only put code that is genuinely shared across **all** your functions here otherwise your Lambdas will get too big. 
 
-The second method is to use `npm` modules and install them in the functions on a case by case basis.  
+The second method is to use `npm` modules and install them in the functions on a case-by-case basis.
 
 ---
 ## 1. Create a Shared Folder
@@ -22,7 +22,7 @@ Create the following file:
 touch src/shared/layout.js
 ```
 
-And modify it to this simple layout:
+We will export a single default function called layout that accepts a body String and returns an HTML as a String. This layout borrows some css from [🚀 cdnjs.com](https:cdnjs.com) and [🍣 rawgit](https://rawgit.com) services for quicker prototyping. 🙏🙏🙏   In a more polished release would own static assets in an S3 bucket behind a CloudFront distribution.
  
 ```javascript
 module.exports = function layout(body) {
@@ -38,10 +38,8 @@ module.exports = function layout(body) {
     <li class="nav-item"><a href="/">Home</a></li>
     <li class="nav-item"><a href="/page/about">About</a></li>
   </ul>
-
   <input type="checkbox" id="nav-trigger" class="nav-trigger" />
   <label for="nav-trigger"></label>
-
   <div class="site-wrap">${body}</div>
 </body>
 </html>
@@ -74,9 +72,8 @@ Before running the local test server or upon deployment JSF Architect will autom
 
 Things to notice:
 
-- Code is shared by _all_ functions defined in `.arc` so be careful about how much code you put in there
-- Code in `src/shared` can have its own Node modules but you have to install and manage those deps in those sub folders with `npm` yourself and relative paths above `/src/shared` will not work once they get copied into the destination functions
-- Code in `@architect/shared` will be clobbered very time you run `npm start` or `npm run deploy`
+- Code is shared by _all_ functions defined in `.arc` so be careful about how much code you put in there; rule of thumb is 5mb uncompressed payloads
+- Code in `src/shared` can have its own Node modules but you have to install and manage those deps in those sub folders with `npm` yourself and relative paths above `src/shared` will not work once they get copied into the destination Lambda function code
 
 ---
 ### 4. Fix Borken URLs
@@ -124,19 +121,20 @@ var arc = require('@architect/functions')
 var layout = require('@architect/shared/layout')
 
 function index(req, res) {
+  var render = layout.bind({}, req)
   res({
-    html: layout(req, 'hi from the index')
+    html: render('hi from the index')
   })
 }
 
 exports.handler = arc.html.get(index)
 ```
 
-Nice work!
+The refactored code above creates a new function called `render` from the `layout` function with the current request `req`  bound as the first parameter. We then call `render` with the content to display.
 
 ### Summary
 
-You created a shared layout and modified to accept a request and respond dynamically. You learned about:
+You created a shared layout and then hacked it to accept a request and respond dynamically. You learned about:
 
 - `src/shared` for sharing code across all the functions defined by `.arc`
 - `req._url` is a hidden helper for fixing relative urls in your app

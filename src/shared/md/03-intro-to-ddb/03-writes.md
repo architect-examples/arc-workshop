@@ -1,64 +1,131 @@
----
-## 2.0 Scheduled Lambda
+```javascript
+var data = require('../')
+var waterfall = require('run-waterfall')
+var parallel = require('run-parallel')
+var test = require('tape')
+var arc = require('@architect/workflows')
 
-Go back to `arc-workshop` repo and edit `.arc`:
+// instance passed to first and last test
+var db
 
-```.arc
-@app
-arc-workshop
+// mock data
+var postID = 'fake-post-id'
+var emoji = ':smile:'
+var emoji2 = ':cat:'
 
-@domain
-your-domain-here.com
+test('arc.sandbox.db.start', t=> {
+  t.plan(1)
+  db = arc.sandbox.db.start(x=> {
+    t.ok(true, 'in memory db started')
+  })
+})
 
-@html
-get /
+/**
+ * 
+ *  ^ ^ ^ your tests here again v v v
+ *
+ */
 
-@scheduled
-heartbeats rate(5 minutes)
+test('arc.sandbox.db.close', t=> {
+  t.plan(1)
+  db.close()
+  t.ok(true, 'db is safely shut down')
+})
 ```
 
-And run `npm run create`.
 
----
-## 2.0 Scheduled Lambda
 
-Take a chill five
 
----
-## 2.0 Scheduled Lambda
-
-0. Navigate to the Lambda in the AWS Console &rarr; Lambda
-1. Click on **Monitoring**
-2. Click on **CloudWatch Logs**
-3. Verify your Lambda is being invoked every five minutes!
-
----
-## 2.0 Scheduled Lambda
-
-Lets install the data layer.
-
-```bash
-cd src/scheduled/heartbeats
-npm i @my-npm-username/arc-workshop-data --save
-```
-
----
-## 2.0 Scheduled Lambda
-
-Edit `src/scheduled/index.js`
 
 ```javascript
-var data = require('')
-var arc = require('@archited/functions')
-
-function handler(event, callback) {
-  data.heartbeats.put({
-    utcDate,
-    utcTime,
-  }, callback)
-}
-
-exports.handler = arc.scheduled(handler)
+test('put', t=> {
+  t.plan(1)
+  // create a dummy post and reactions
+  var post = data.posts.put.bind({}, {postID, title:'hi', ts:'2017-11-11'})
+  var reaction = data.reactions.put.bind({}, {postID, emoji, count:2}) 
+  var reaction2 = data.reactions.put.bind({}, {postID, emoji:emoji2, count:1}) 
+  // run the dummy data writes in parallel
+  parallel([
+    post, 
+    reaction, 
+    reaction2, 
+  ], 
+  function _put(err, result) {
+    if (err) {
+      t.fail(err)
+    }
+    else {
+      t.ok(result.length === 3, 'got result')
+      console.log(result)
+    }
+  })
+})
 ```
 
-Deploy to `staging` with `npm run deploy`.
+```javascript
+test('update', t=> {
+  t.plan(1)
+  waterfall([
+    function update(callback) {
+      data.posts.update({
+        Key: {
+          postID
+        },
+        UpdateExpression: 'set #title = :title',
+        ConditionExpression: '#postID = :postID',
+        ExpressionAttributeNames: {
+          '#title': 'title',
+          '#postID': 'postID',
+        },
+        ExpressionAttributeValues: {
+          ':title': 'updated title nice 1',
+          ':postID': postID,
+        }
+      }, callback) 
+    },
+    function read(callback) {
+      data.posts.get({
+        postID
+      }, callback) 
+    }
+  ],
+  function _put(err, result) {
+    if (err) {
+      t.fail(err)
+    }
+    else {
+      t.ok(result.title.indexOf('updated') > -1, 'got result')
+      console.log(result)
+    }
+  })
+})
+
+```
+
+```javascript
+test('delete', t=> {
+  t.plan(1)
+  waterfall([
+    function wrrite(callback) {
+      data.reactions.delete({
+        postID, 
+        emoji,
+      }, callback) 
+    },
+    function read(ignored, callback) {
+      data.reactions.scan({}, callback) 
+    }
+  ],
+  function done(err, result) {
+    if (err) {
+      t.fail(err)
+    }
+    else {
+      t.ok(result.Count === 1, 'got result')
+      console.log(result)
+    }
+  })
+})
+```
+
+

@@ -122,7 +122,7 @@ function route(req, res) {
 exports.handler = arc.html.get(route)
 ```
 
-We can just use `console.log` and it will automatically log to CloudWatch for us. The `res` function accepts named parameters. We're just sending back an `html` in a `String` value for now but it also supports being passed `location`, `Error` and `status`.
+`console.log` statements automatically log to CloudWatch. The `res` function accepts named parameters. We're just sending back an `html` in a `String` value for now but it also supports being passed other keys, which we will see later: `location`, `status` and `session`.
 
 Deploy the edited function to staging by running:
 
@@ -147,7 +147,7 @@ ARC_DEPLOY=production npm run deploy
 ---
 ## 7. Work Locally
 
-Sometimes you can't access the cloud. Sometimes you don't want to! Working locally is fast and JSF Architect fully supports running your functions on your own machine without a web connection.
+Sometimes you can't access the cloud. _Sometimes you don't want to._ Working local is fast and JSF Architect fully supports running your functions on your own machine without a web connection. To kick up a sandbox run:
 
 ```
 npm start
@@ -161,7 +161,7 @@ Things to notice:
 ---
 ## 8. Buy a Domain
 
-Open the AWS Console &rarr; Route 53 &rarr; [Domains](https://console.aws.amazon.com/route53/home?region=us-east-1#DomainListing:). Pick something totally awesome! ✨
+Open the AWS Console &rarr; Route 53 &rarr; [Domains](https://console.aws.amazon.com/route53/home?region=us-east-1#DomainListing:). Pick something totally awesome! [✨](https://✨.to)
 
 ---
 ## 9. Setup DNS
