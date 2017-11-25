@@ -1,0 +1,3 @@
+- sign in with slack
+- options url and interactive menus (rdop dopwns?)
+- dialogs 

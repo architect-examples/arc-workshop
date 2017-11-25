@@ -158,6 +158,8 @@ Things to notice:
 - The local sandbox uses the excellent [Dynalite](https://www.npmjs.com/package/dynalite) library which runs in-memory so any database state you have will be nuked between runs (this is a feature not a bug!)
 - The sandbox does not currently support SNS events, scheduled functions with Cloudwatch Events or mocking out Slack (but all are possible and in scope for the roadmap: contributions appreciated!)
 
+> Protip: the sandbox will mount `./.views` and serve any static assets found in there; this is useful for clientside dev concerns before they go to S3
+
 ---
 ## 8. Buy a Domain
 
