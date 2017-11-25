@@ -1,4 +1,3 @@
----
 ## Compute History
 
 - AWS created and dominates the cloud marketplace
@@ -7,9 +6,14 @@
 > Cloud won't be the last evolution of computing! Maybe the future is #vendorless?
 
 ---
-## primatives not frameworks
+### More Primatives (not Frameworks)
 
-- other things to know about: lambda step functions, lambda at edge, lambda greengrass, sqs, kinesis, athena 
+- Lambda step functions
+- Lambda at edge
+- Lambda greengrass
+- SQS
+- Kinesis
+- Athena 
 
 ---
 ## Cloud Ethos
@@ -22,4 +26,4 @@
 ---
 ## Next steps!!
 
-Intro to arc.codes
+Intro to [JSF Architect](https://arc.codes)

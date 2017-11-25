@@ -1,15 +1,23 @@
-## Cloud Ethos
+### 🌩  Cloud Ethos
 
-- Focus on delivering business value not infrastructure maintenance
-- Using guiding principles to inform dev practices 
+<div style=padding-left:150px;font-size:.6em;text-align:left;>
+👉  &nbsp; Focus on delivering **business value** not **infrastructure maintenance**<br>
+👉  &nbsp; Using guiding **principles** to inform dev **practices**<br>
+</div>
 
 ---
 ## *Ops
 
-- Ops is not about a particular tool or even skillset
-- *ops is the unifiation of the operations, reliability, and qa teams with engineering
+- Ops *is not* about a particular tool or even skillset
+- Ops *is* the unifiation of the operations, reliability, and qa teams with engineering
 - Devops taught us ops should *not* be a siloed team 
-- Like performance and security, ops is not a line item you can just schedule
+
+---
+### Bottom Line 🎯
+
+<span class=high>
+As with performance and security, ops is not a line item you can just add to the schedule.
+</span>
 
 ---
 ## *Ops
@@ -21,17 +29,34 @@
 
 ---
 # Security
+The land of acronyms. 
 
-A land of acronyms. 
-
-| Role based security   | IAM (Identity Access Management) is required
-| Certificate Authority | ACM (AWS Certificate Manager) is your friend
-| Key management        | KMS (Key Management Service) is super awesome
+<style>table#d {font-size:.7em; }</style>
+<table id=d>
+<tr>
+  <th>Concept</th>
+  <th>Name</th>
+  <th>Acronym</th>
+<tr>
+   <td>Role based security</td>
+   <td>Identity Access Management</td>
+   <td>IAM </td>
+</tr>
+<tr>
+  <td>Certificate Authority</td>
+  <td>AWS Certificate Manager</td>
+   <td>ACM</td>
+</tr>
+<tr>
+  <td>Key management</td>
+  <td>Key Management Service</td>
+  <td>KMS </td>
+</tr>
+</table>
 
 ---
-## Security!
 
-This is everyone's ethical responsibility to respect the security and privacy of our customers, our colleagues and ourselves.
+<span class=high>This is everyone's ethical responsibility to respect the security and privacy of our customers, our colleagues and ourselves.</span>
 
 ---
 ## Performance
@@ -105,26 +130,30 @@ Monitoring **is not** logging; it is the practice of keeping an eye on your prod
 ---
 ## Five Factors of the Twelve Factor App
 
-- Use declarative formats for setup automation, to minimize time and cost for new developers joining the project;
-- Have a clean contract with the underlying operating system, offering maximum portability between execution environments;
-- Are suitable for deployment on modern cloud platforms, obviating the need for servers and systems administration;
-- Minimize divergence between development and production, enabling continuous deployment for maximum agility;
-- And can scale up without significant changes to tooling, architecture, or development practices.
+---
+Use declarative formats for setup automation, to minimize time and cost for new developers joining the project;
+
+---
+Have a clean contract with the underlying operating system, offering maximum portability between execution environments;
+
+---
+Are suitable for deployment on modern cloud platforms, obviating the need for servers and systems administration;
+
+---
+Minimize divergence between development and production, enabling continuous deployment for maximum agility;
+
+---
+And can scale up without significant changes to tooling, architecture, or development practices.
 
 > https://12factor.net
 
 ---
-## 0000 Intro to AWS
-
-One view of AWS Lambda is a commodification of the 12factor principles in the form of a purchasable service (practice).
+## AWS Lambda is a commodification of 12factor principles
 
 ---
 ## A Wild Caveat Appears
 
-A caveat! I think you should learn the AWS Console inside and out. its your IDE and you are only fucking yourself over by not mastering it no matter how much of a peice of shit you think it is
-
-- learning the console makes you a master of scripting AWS itself; it leads to deeper understanding of what the APIs so cryptically described in docs are actually capable of; if I didn't know how API Gateway works visually I most-fucking-definitely would not have been able to write arc abstraction for it; 
-- seriously have a look at those docs and tell me you have any clue wtf they're talking about. its an api for creating apis ffs. how *could* you document that?! visually thats how. and thats the genius of what the console does. it teaches you how to write aws code visually.
+<span class=high>Learn the AWS Console inside and out</span>
 
 ---
 ## *Ops Responsibilities Recap

@@ -18,17 +18,9 @@ Awesome links:
 ---
 ## Primitives not Framworks
 
+![](http://www.allthingsdistributed.com/images/wvlogo.jpg)
+
 This is a fantastic mental model for the serverless renaissance introduced by Werner Vogals, CTO of Amazon.
-
----
-## Primitives not Framworks
-
-werner pic and quote here
-
----
-## Primitives not Frameworks
-
-Talk about what werner meant here.
 
 ---
 ## AWS Primitives
@@ -42,11 +34,68 @@ Talk about what werner meant here.
 ---
 ## Primitives
 
-- Compute &rarr; runtime for all your business logic
-- Blog storage &rarr; static assets, coldstorage of data, etc
-- Database persistence &rarr; structured data
-- HTTP gateway &rarr; talk to the world
-- Messaging &rarr; background tasks
+- **Compute** &rarr; runtime for all your business logic
+- **Blog storage** &rarr; static assets, coldstorage of data, etc
+- **Database persistence** &rarr; structured data
+- **HTTP gateway** &rarr; talk to the world
+- **Messaging** &rarr; background tasks
+
+---
+## Primitives as a Service
+
+A better PaaS? *
+<style>
+table#c tr th {
+  font-size:.6em;
+}
+table#c tr td {
+  font-size:.6em;
+}
+</style>
+<table width=100% id=c>
+<tr> 
+  <th style=width:150px;>Primitive</th>
+  <th style=width:150px;>Product</th>
+</tr>
+<tr>
+  <td>Compute</td>
+  <td>Lambda</td>
+</tr>
+<tr>
+  <td>Blob storage</td>
+  <td>S3</td>
+</tr>
+<tr>
+  <td>Compute</td>
+  <td>Lambda</td>
+</tr>
+<tr>
+  <td>Database</td>
+  <td>DynamoDB</td>
+</tr>
+<tr>
+  <td>HTTP gateway</td>
+  <td>API Gateway, CloudFront, Route53</td>
+</tr>
+<tr>
+  <td>Messaging</td>
+  <td>SNS</td>
+</tr>
+</table>
+
+<blockquote style=width:100%;font-size:.5em;>
+* PaaS in popular tech culture meant Platform as a Service; an idea that predicated Lambda
+</blockquote>
+
+---
+## Managed vs Unmanged
+
+- Transparent vs Opaque
+- Security
+- Performance
+- Scale
+
+Can your business commodatize these vectors faster and cheaper than AWS?
 
 ---
 ## Mental Model
@@ -98,63 +147,6 @@ table#b tr td {
 </table>
 
 ---
-## Managed vs Unmanged
-
-- Transparent vs Opaque
-- Security
-- Performance
-- Scale
-
-Can your business commodatize these vectors faster and cheaper than AWS?
-
----
-## Primitives as a Service
-
-A better PaaS? *
-<style>
-table#c tr th {
-  font-size:.6em;
-}
-table#c tr td {
-  font-size:.6em;
-}
-</style>
-<table width=100% id=c>
-<tr> 
-  <th style=width:150px;>Primitive</th>
-  <th style=width:150px;>Product</th>
-</tr>
-<tr>
-  <td>Compute</td>
-  <td>Lambda</td>
-</tr>
-<tr>
-  <td>Blob storage</td>
-  <td>S3</td>
-</tr>
-<tr>
-  <td>Compute</td>
-  <td>Lambda</td>
-</tr>
-<tr>
-  <td>Database</td>
-  <td>DynamoDB</td>
-</tr>
-<tr>
-  <td>HTTP gateway</td>
-  <td>API Gateway, CloudFront, Route53</td>
-</tr>
-<tr>
-  <td>Messaging</td>
-  <td>SNS</td>
-</tr>
-</table>
-
-<blockquote style=width:100%;font-size:.5em;>
-* PaaS in popular tech culture meant Platform as a Service; an idea that predicated Lambda
-</blockquote>
-
----
 ## Important!
 
 AWS is much more serverless than just these services:
@@ -166,12 +158,11 @@ AWS is much more serverless than just these services:
 - SNS
 
 ---
-## Patterns are Mental Models
-
+### Patterns are Mental Models
+<style>.high {background:yellow;}</style>
 - Introduced in the new well worn GoF
-- Most of these things go by a few names; sometimes differ between languages/runtimes and/or get built-in
-
-Underlying principle: we can follow a pattern to solve a particular class of problem
+- Sometimes differ between languages/runtimes and/or get built-in
+- <span class=high>Underlying principle: we can follow a pattern to solve a particular class of problem</span>
 
 ---
 <h4 style=width:100%;>🔑  Patterns are Composed of Primitives</h4>
@@ -209,29 +200,31 @@ table#d tr td {
 
 ---
 ## Old Patterns are New Again
-
-Flyweight &rarr; Fan out
-- http://freecontent.manning.com/patterns-for-solving-problems-in-serverless-architectures/ 
+<a href=http://freecontent.manning.com/patterns-for-solving-problems-in-serverless-architectures>
+<img src=http://freecontent.manning.com/wp-content/uploads/Sbarski_PiSA_00.png width=300px>
+</a>
 
 ---
-## Composition over Inheritance 
-
-- ✅ Primitives are flexable and compose to powerful solutions
-- ✅ Frameworks tradeoff flexability for deliberate constraint
-- ✅ Frameworks themselves are composed of Primitives; oft by way Patterns
-
+### Composition over Inheritance 
+<div style=padding-left:150px;font-size:.6em;text-align:left;>
+✅  Primitives are flexable and compose to powerful solutions<br>
+✅  Frameworks tradeoff flexability for deliberate constraint<br>
+✅  <span class=high>**Frameworks** are composed of **Primitives** implementing **Patterns**</span><br>
+</div>
 ---
 ## Primitives &rarr; Patterns &rarr; App
 
 Building an **App** is building a non generalized **Framework** for your **Product**
 
 ---
-## Spoiler: *Ops: Still A Thing
+### Spoiler: *Ops: Still A Thing
 
-- Devops is about shattering the barrier between dev and delivery
-- Cloud tech brings delivery right to the doorstep of dev
-- Loose collection of principles and ever-changing implementing practices *
-
-<blockquote style=width:100%;font-size:.5em;>
+<div style=padding-left:150px;font-size:.6em;text-align:left;>
+✅  Devops is about shattering the barrier between dev and delivery<br>
+✅  Cloud tech brings delivery right to the doorstep of dev<br>
+✅  Loose collection of principles and ever-changing implementing practices *<br>
+<blockquote style=width:100%;border:none;background:none;font-size:.6em;>
 * The cloud does not negate principles; it's just a new player in our ever-changing implementing practices
 </blockquote>
+</div>
+

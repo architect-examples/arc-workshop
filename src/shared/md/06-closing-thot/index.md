@@ -17,11 +17,14 @@ That was a big day. We conquered a great deal of serverless surface in the AWS e
 ---
 ### JSF Architect Roadmap
 
-- Key management with KMS
 - Related to the front end S3 and static web sites with CloudFront
+- Key management and automated environment variable handling with KMS
+- scaffolding for tests
+
+---
+### Science Fair Shit
 - lambda@edge
 - greengrass
-- scaffolding for tests
 
 ---
 ### Becom a Contributor
