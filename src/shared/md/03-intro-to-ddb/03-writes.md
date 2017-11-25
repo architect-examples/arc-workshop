@@ -1,3 +1,10 @@
+Reading data isn't going to be very interesting if we can't write it. 
+
+---
+### Test Setup
+
+Lets scaffold some tests.
+
 ```javascript
 var data = require('../')
 var waterfall = require('run-waterfall')
@@ -33,9 +40,12 @@ test('arc.sandbox.db.close', t=> {
 })
 ```
 
+Great! Now we are ready to write some data.
 
+---
+### Writing Rows with `put`
 
-
+The primary method of writing data in DynamoDB is `put`. Herein we'll write three rows in parallel.
 
 ```javascript
 test('put', t=> {
@@ -62,10 +72,23 @@ test('put', t=> {
 })
 ```
 
+The `parallel` method accepts functions that themselves accept a Node style callback (sometimes called an 'errback').
+
+Things to notice:
+
+- We use `.bind` to construct functions that have parameters pre-bound
+- We can use parallel to run those functions as fast as possible
+
+---
+### Updating a Row
+
+Mutating data is a complex topic and accordingly DyamoDB `update` is probably the most complicated code in this workshop. To make writing our test a bit easier we use `waterfall` to avoid nesting and the so-called 'callback hell'.
+
 ```javascript
 test('update', t=> {
   t.plan(1)
   waterfall([
+    // update the row
     function update(callback) {
       data.posts.update({
         Key: {
@@ -83,13 +106,15 @@ test('update', t=> {
         }
       }, callback) 
     },
+    // read it back
     function read(callback) {
       data.posts.get({
         postID
       }, callback) 
     }
   ],
-  function _put(err, result) {
+  // check the result
+  function _done(err, result) {
     if (err) {
       t.fail(err)
     }
@@ -101,6 +126,13 @@ test('update', t=> {
 })
 
 ```
+
+It is also possible to write your own update by just overwriting a record in the database using `put`. 
+
+---
+### Deletion
+
+No CRUD app is complete without delete!
 
 ```javascript
 test('delete', t=> {
@@ -128,4 +160,4 @@ test('delete', t=> {
 })
 ```
 
-
+---

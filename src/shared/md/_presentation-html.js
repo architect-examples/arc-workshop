@@ -21,19 +21,31 @@ module.exports = function _presentationHTML(req) {
   }
 }
 
+var testingAssets = `
+<link rel="stylesheet" href="/reveal.css">
+<link rel="stylesheet" href="/white.css">
+<link rel="stylesheet" href="/default.css">
+<script src="/reveal.js"></script>
+<script src="/highlight.js"></script>
+<script src="/highlight_002.js"></script>
+<script src="/notes.js"></script>
+`
+
+var liveAssets = `
+<link rel="stylesheet" href=https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/reveal.min.css>
+<link rel="stylesheet" href=https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/theme/white.css>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+<script src=https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/js/reveal.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/plugin/highlight/highlight.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/plugin/notes/notes.js></script>
+`
+
 function _layout(slides) {
   return `
 <!doctype html>
 <html>
-<head>
-	<link rel="stylesheet" href=https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/reveal.min.css>
-	<link rel="stylesheet" href=https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/theme/white.css>
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
-  <script src=https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/js/reveal.min.js></script>
-  <script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js></script>
-	<script src=https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/plugin/highlight/highlight.js></script>
-	<script src=https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/plugin/notes/notes.js></script>
-</head>
+<head>${process.env.NODE_ENV === 'testing'? testingAssets : liveAssets}</head>
 <body>
 <div class=reveal><div class=slides>${slides}</div></div>
 <!--

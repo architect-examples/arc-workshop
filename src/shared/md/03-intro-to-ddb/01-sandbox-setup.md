@@ -154,13 +154,3 @@ Copy the test above and modify to try out `data._db.listTables` method.
 An instance of [`DynamoDB.DocumentClient`](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB/DocumentClient.html) which provides a cleaner interface for working with entities and collections.
 
 ---
-### Extra Credit
-
-- Lint checker
-- Code Coverage
-- Continuous Integration (JSF Architect uses Codeship fwiw)
-- Greenkeeper
-- Bithound
-- Publish the data layer as a scoped module on npm
-
----

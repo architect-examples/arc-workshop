@@ -52,12 +52,12 @@ The tradeoff of this approach is a convention for destructive writes of appendin
 - Clients are far easier to author with the main information is divvied betwen reads (`GET`) and writes (`POST`) and plain URLs
 - No helpers are required to learn, use (and debug); you are free to generate form fields, headers, and the such however you want (serverside render interop is clean)
 
-Just because JSF Architect reccomends this it does not mean you are required to heed this advice. You can create additional endpoints in API Gateway and map them to your existing Lambda functions manually. You could opt to use a query parameter or hidden form field to mock out `text/html` content too (but you are then opting into having a function for both update and delete actions which is definately not desirable)..
+Just because JSF Architect reccomends this it does not mean you are required to heed this advice. You can create additional endpoints in API Gateway and map them to your existing Lambda functions manually (or with CloudFormation). You could opt to use a query parameter or hidden form field to mock out `text/html` content too (but you are then opting into having a function for both update and delete actions which is definately not desirable)..
 
 ---
 ### Alternative API Styles
 
-In recent years REST has come under fire and some further attempts at normalization have been made.
+REST is not the only way to architect an HTTP API.
 
 [**JSON API**](http://jsonapi.org/) is a formal specification for formatting JSON responses with a slightly different header `application/vnd.api+json`. JSF Architect does not currently support this natively but you could reconfigure API Gateway manually to send this `Content-Type`.
 
@@ -73,20 +73,19 @@ In recent years REST has come under fire and some further attempts at normalizat
 
 It works wonderfully and we were able to implment a client library in less than 20KB!
 
-
 ---
 ### Limits
 
-- urls need to be short
-- nesting not reccomended (probably not a super great practice anyhow)
+- URLs need to be short
+- Deep nesting is not reccomended (probably not a super great practice anyhow)
 
 ---
 ### Notes on Hydrating Server Side Rendered Content
 
+Prerendering HTML content on the "serverless" side is often more performant than constructing everything clientside with JavaScript. A common pattern is to render an HTML DOM string in the Lambda function, and embed a JSON encoded payload that clientside JS then reads and 'hydrates' the DOM.
+
 ---
 ### Notes on creatng Stateless APIs
 
-JSF Architect layers in sesson state for building robust user facing web applications. API Gateway by itself is designed for stateless APIs and works great for them! Just delete the SESSION_TABLE_NAME environment variables from the lambdas you want to be stateless.
+JSF Architect layers in sesson state for building robust user facing web applications. API Gateway by itself is designed for stateless APIs and works great for them! Just delete the SESSION_TABLE_NAME environment variables from the lambdas you want to be stateless. You will have to construct an oAuth flow for security.
 
----
-### Notes on 

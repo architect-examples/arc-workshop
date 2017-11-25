@@ -51,7 +51,7 @@ Things to notice:
 ---
 ### 2. Populate Mock Data
 
-Before we read any data we need to write a little bit. You can blindly copy/past this method to create a mock post with two reactions.
+Before we read any data we need to write a little bit. You can blindly copy/past this method to create a mock post with two reactions. We will check in on writing data in the next section of this exercise.
 
 
 ```javascript
@@ -105,11 +105,9 @@ test('data.posts.get', t=> {
 ---
 ### 4. Query a Table for a Collection of Rows
 
+To get a collection of rows you ideally want to use `query`. For example get all the reactions for a post:
+
 ```javascript
-/**
- * if you want to get a collection of things you ideally want to use query
- * for example: all the reactions for a post
- */
 test('data.reactions.query', t=> {
   t.plan(1)
   data.reactions.query({
@@ -131,55 +129,30 @@ test('data.reactions.query', t=> {
 ```
 
 ---
-### 5. Query a Table _Index_ for a Collection of Rows
+### 5. Get Rows by the Batch
+
+If you happen to have the ids of multiple entities you can use `batchGet` to get them all at once. Even across tables!
 
 ```javascript
-
-/**
- * or perhaps all the posts in 2017
-test('data.reactions.query with index', t=> {
-  t.plan(1)
-  data.posts.query({
-    KeyConditionExpression: 'begins_with(#ts, :ts)',
-    ExpressionAttributeNames: {
-      '#ts': 'ts'
-    },
-    ExpressionAttributeValues: {
-      ':ts': '2017',
-    }
-  }, 
-  function _get(err, result) {
-    if (err) {
-      t.fail(err)
-    }
-    else {
-      t.ok(result, 'got result')
-      console.log(result)
-    }
-  })
-})
-*/
-
-```
-
----
-### batchGet
-
-```javascript
-/**
- * batchGet
- */
 test('data.reactions.batchGet', t=> {
   t.plan(1)
+
+  // get the table names
+  var posts = data._name('posts')
+  var reactions = data._name('reactions')
+
+  // construct a query
+  var query = {}
+  query[posts] = {
+    Keys: [{postID}]
+  }
+  query[reactions] = {
+    Keys: [{postID, emoji}]
+  }
+
+  // execute the query
   data._doc.batchGet({
-    RequestItems: {
-      'arc-workshop-staging-posts': {
-         Keys: [{postID}]
-      },
-      'arc-workshop-staging-reactions': {
-         Keys: [{postID, emoji}]
-      }
-    }
+    RequestItems: query
   }, 
   function _batchGet(err, result) {
     if (err) {
@@ -193,8 +166,13 @@ test('data.reactions.batchGet', t=> {
 })
 ```
 
+Things to notice:
+
+- `data._name` was used to avoid hard coding table names
+- The query can span many tables
+
 ---
-### Scan
+### 6. Scan
 
 The `scan` method is a last resort and ideally only used for scripts and/or migraitons. You shouldn't need it for application logic and if you do its a sign you should consider denormalizing, add indexes or (most drastic) change the key schema to support direct queries. Scan literally scans your database a row at a time so it is totally inefficient and thusly slow.
 
@@ -213,3 +191,4 @@ test('data.reactions.scan', t=> {
 })
 ```
 
+---

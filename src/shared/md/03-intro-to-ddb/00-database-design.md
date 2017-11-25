@@ -66,10 +66,6 @@ reactions
   postID *String
   emoji **String
   #count
- 
-@indexes
-posts
-  postID *String
 ```
 
 This `.arc` file defines two tables:

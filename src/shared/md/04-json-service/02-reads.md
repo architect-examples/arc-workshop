@@ -57,6 +57,11 @@ exports.handler = arc.json.get(route)
 
 It's very clean. We will want to add parameter validation and authentication check but in a future iteration. First lets test this!
 
+---
+### 3. Testing
+
+Sometimes people like to write tests first. 
+
 ```javascript
 var test = require('tape')
 var arc = require('@architect/workflows')
@@ -88,7 +93,7 @@ test('get /api/pasts', t=> {
   })
 })
 
-test('get /api/pasts/:postID', t=> {
+test('get /api/posts/:postID', t=> {
   t.plan(1)
   var url = `http://localhost:3333/api/posts/${first.postID}`
   req(url, function _get(err, res, body) {

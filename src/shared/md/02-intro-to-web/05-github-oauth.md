@@ -208,6 +208,7 @@ get /protected
 And generate it by running `npm run create`. Then open it up and edit the contents:
 
 ```javascript
+// src/html/get-protected/index.js
 var arc = require('@architect/functions')
 var protect = require('@architect/shared/protect')
 
