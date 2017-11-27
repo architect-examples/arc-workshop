@@ -1,4 +1,4 @@
-Error handling is a major 🔑  to writing resilient applications. JSF Architect bakes support in for working with the inevidable `Error` over HTTP. Will will explore ifferent error handling scenarios in this exercise.
+Error handling is a major 🔑  to writing resilient applications. JSF Architect bakes support in for working with the inevidable `Error` over HTTP. Will will explore different error handling scenarios in this exercise.
 
 ---
 ### 1. Hope for the Best

@@ -1,4 +1,4 @@
-Reading data isn't going to be very interesting if we can't write it. 
+Reading data isn't going to be very interesting if we can't write it.
 
 ---
 ### Test Setup
@@ -28,7 +28,7 @@ test('arc.sandbox.db.start', t=> {
 })
 
 /**
- * 
+ *
  *  ^ ^ ^ your tests here again v v v
  *
  */
@@ -52,14 +52,14 @@ test('put', t=> {
   t.plan(1)
   // create a dummy post and reactions
   var post = data.posts.put.bind({}, {postID, title:'hi', ts:'2017-11-11'})
-  var reaction = data.reactions.put.bind({}, {postID, emoji, count:2}) 
-  var reaction2 = data.reactions.put.bind({}, {postID, emoji:emoji2, count:1}) 
+  var reaction = data.reactions.put.bind({}, {postID, emoji, count:2})
+  var reaction2 = data.reactions.put.bind({}, {postID, emoji:emoji2, count:1})
   // run the dummy data writes in parallel
   parallel([
-    post, 
-    reaction, 
-    reaction2, 
-  ], 
+    post,
+    reaction,
+    reaction2,
+  ],
   function _put(err, result) {
     if (err) {
       t.fail(err)
@@ -82,7 +82,7 @@ Things to notice:
 ---
 ### Updating a Row
 
-Mutating data is a complex topic and accordingly DyamoDB `update` is probably the most complicated code in this workshop. To make writing our test a bit easier we use `waterfall` to avoid nesting and the so-called 'callback hell'.
+Mutating data is a complex topic and accordingly DynamoDB `update` is probably the most complicated code in this workshop. To make writing our test a bit easier we use `waterfall` to avoid nesting and the so-called 'callback hell'.
 
 ```javascript
 test('update', t=> {
@@ -104,13 +104,13 @@ test('update', t=> {
           ':title': 'updated title nice 1',
           ':postID': postID,
         }
-      }, callback) 
+      }, callback)
     },
     // read it back
     function read(callback) {
       data.posts.get({
         postID
-      }, callback) 
+      }, callback)
     }
   ],
   // check the result
@@ -127,7 +127,7 @@ test('update', t=> {
 
 ```
 
-It is also possible to write your own update by just overwriting a record in the database using `put`. 
+It is also possible to write your own update by just overwriting a record in the database using `put`.
 
 ---
 ### Deletion
@@ -140,12 +140,12 @@ test('delete', t=> {
   waterfall([
     function wrrite(callback) {
       data.reactions.delete({
-        postID, 
+        postID,
         emoji,
-      }, callback) 
+      }, callback)
     },
     function read(ignored, callback) {
-      data.reactions.scan({}, callback) 
+      data.reactions.scan({}, callback)
     }
   ],
   function done(err, result) {

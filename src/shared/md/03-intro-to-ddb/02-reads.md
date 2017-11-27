@@ -1,4 +1,4 @@
-Databases offer different sorts of guarentees around persistence but ultimately they really are about two primary concerns: read and writing data. In this section we explore reading data.
+Databases offer different sorts of guarantees around persistence but ultimately they really are about two primary concerns: read and writing data. In this section we explore reading data.
 
 ---
 ### 1. Test Skeleton
@@ -27,10 +27,10 @@ test('arc.sandbox.db.start', t=> {
 })
 
 /**
- * 
- *   ✿ ✿ ✿   your tests go here   ✿ ✿ ✿ 
  *
- */ 
+ *   ✿ ✿ ✿   your tests go here   ✿ ✿ ✿
+ *
+ */
 
 // shut down the test db server
 test('arc.sandbox.db.close', t=> {
@@ -59,14 +59,14 @@ test('populate mock data', t=> {
   t.plan(1)
   // create a dummy post and reactions
   var post = data.posts.put.bind({}, {postID, title:'hi', ts:'2017-11-11'})
-  var reaction = data.reactions.put.bind({}, {postID, emoji, count:2}) 
-  var reaction2 = data.reactions.put.bind({}, {postID, emoji:emoji2, count:1}) 
+  var reaction = data.reactions.put.bind({}, {postID, emoji, count:2})
+  var reaction2 = data.reactions.put.bind({}, {postID, emoji:emoji2, count:1})
   // run the dummy data writes in parallel
   parallel([
-    post, 
-    reaction, 
-    reaction2, 
-  ], 
+    post,
+    reaction,
+    reaction2,
+  ],
   function _put(err, result) {
     if (err) {
       t.fail(err)
@@ -82,14 +82,14 @@ test('populate mock data', t=> {
 ---
 ### 3. Get a Row
 
- If you happen to know the id of the entity you are looking for then `get` is the fastest method you can use to retrieve it. 
+ If you happen to know the id of the entity you are looking for then `get` is the fastest method you can use to retrieve it.
 
 ```javascript
 test('data.posts.get', t=> {
   t.plan(1)
   data.posts.get({
     postID,
-  }, 
+  },
   function _get(err, result) {
     if (err) {
       t.fail(err)
@@ -115,7 +115,7 @@ test('data.reactions.query', t=> {
     ExpressionAttributeValues: {
       ':postID': postID,
     }
-  }, 
+  },
   function _get(err, result) {
     if (err) {
       t.fail(err)
@@ -153,7 +153,7 @@ test('data.reactions.batchGet', t=> {
   // execute the query
   data._doc.batchGet({
     RequestItems: query
-  }, 
+  },
   function _batchGet(err, result) {
     if (err) {
       t.fail(err)
@@ -174,7 +174,7 @@ Things to notice:
 ---
 ### 6. Scan
 
-The `scan` method is a last resort and ideally only used for scripts and/or migraitons. You shouldn't need it for application logic and if you do its a sign you should consider denormalizing, add indexes or (most drastic) change the key schema to support direct queries. Scan literally scans your database a row at a time so it is totally inefficient and thusly slow.
+The `scan` method is a last resort and ideally only used for scripts and/or migrations. You shouldn't need it for application logic and if you do its a sign you should consider denormalizing, add indexes or (most drastic) change the key schema to support direct queries. Scan literally scans your database a row at a time so it is totally inefficient and thusly slow.
 
 ```javascript
 test('data.reactions.scan', t=> {

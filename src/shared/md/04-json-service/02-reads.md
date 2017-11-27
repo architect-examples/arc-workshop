@@ -39,7 +39,7 @@ var data = require('@architect/shared/data')
 function route(req, res) {
   data.posts.get({
     postID: req.params.postID
-  }, 
+  },
   function _get(err, results) {
     if (err) {
       res(err)
@@ -60,7 +60,7 @@ It's very clean. We will want to add parameter validation and authentication che
 ---
 ### 3. Testing
 
-Sometimes people like to write tests first. 
+Sometimes people like to write tests first.
 
 ```javascript
 var test = require('tape')
@@ -68,8 +68,8 @@ var arc = require('@architect/workflows')
 var request = require('request')
 
 var req = request.defaults({jar:true})
-var done 
-var first 
+var done
+var first
 
 test('start', t=> {
   t.plan(1)
@@ -117,7 +117,7 @@ test('close', t=> {
 Things to notice:
 
 - A new top level variable named `first` to stash the first post from the `get /api/posts` test
-- The test for `get /api/posts/:postID` usses `first.postID` as a url parameter
+- The test for `get /api/posts/:postID` uses `first.postID` as a url parameter
 
 ---
 

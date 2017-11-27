@@ -1,4 +1,4 @@
-🆗 this is where things get really fun. We're ready to wire up our data access layer to a JSON API. Before we start writing data _through_ the cloud lets get things setup for local development. 
+🆗 this is where things get really fun. We're ready to wire up our data access layer to a JSON API. Before we start writing data _through_ the cloud lets get things setup for local development.
 
 ---
 ### 1. Setup
@@ -70,7 +70,7 @@ reactions
   postID *String
   emoji **String
   #count
- 
+
 @indexes
 posts
   postID *String
@@ -83,20 +83,20 @@ Things to notice:
 -
 
 ---
-### 4. Create Routes 
+### 4. Create Routes
 
 Create the routes execute:
 
 ```
 npm run create
-``` 
+```
 
 It'll skip the `@tables` since you already created them.
 
 ---
 ### 5. Test Sandbox
 
-Lets write some tests against a local sandbox. Open up `test/env-test.js` amd add the following env check test:
+Lets write some tests against a local sandbox. Open up `test/env-test.js` and add the following env check test:
 
 ```javascript
 var test = require('tape')
@@ -104,7 +104,7 @@ var arc = require('@architect/workflows')
 var request = require('request')
 
 var req = request.defaults({jar:true})
-var end 
+var end
 
 test('start', t=> {
   t.plan(1)
@@ -134,7 +134,7 @@ test('close', t=> {
 })
 ```
 
-A few things are different this time. 
+A few things are different this time.
 
 Things to notice:
 
@@ -157,7 +157,7 @@ touch src/shared/data/index.js
 Init the shared deps.
 
 ```
-cd src/shared/data 
+cd src/shared/data
 npm init --yes
 npm i @architect/data --save
 ```
@@ -169,7 +169,7 @@ By default `@architect/data` looks for `.arc` in the current working directory b
 var path = require('path')
 var arc = require('@architect/data')
 
-var arcPath = path.join(__dirname, '..', '.arc') 
+var arcPath = path.join(__dirname, '..', '.arc')
 module.exports = arc(arcPath)
 ```
 
@@ -212,6 +212,6 @@ You should see a response value directly from Dynalite:
 ```
 
 
-Nice work. Lets wire up database reads next. 
+Nice work. Lets wire up database reads next.
 
 ---

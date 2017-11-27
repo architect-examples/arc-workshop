@@ -15,8 +15,8 @@
 - Relaunched in 2006 with: S3, SQS and EC2
 
 ---
-## 📈  Epic Growth 
-- In 2015, [Amazon.com reported AWS was profitable](http://www.bbc.co.uk/news/business-32442268), with sales of $1.57 billion in the first quarter of the year 
+## 📈  Epic Growth
+- In 2015, [Amazon.com reported AWS was profitable](http://www.bbc.co.uk/news/business-32442268), with sales of $1.57 billion in the first quarter of the year
 - AWS is predicted to have $13 billion in revenue in 2017
 
 ---
@@ -27,13 +27,13 @@
 ---
 ## Cloud Vendor Philosphy
 
-If you really want to understand AWS you need to read this [blog post from Werner Vogels](http://www.allthingsdistributed.com/2016/03/10-lessons-from-10-years-of-aws.html) 
+If you really want to understand AWS you need to read this [blog post from Werner Vogels](http://www.allthingsdistributed.com/2016/03/10-lessons-from-10-years-of-aws.html)
 
 ---
 ## AWS Pioneered IaaS
 
 - Dominates the market it mostly created
-- New players are emmerging
+- New players are emerging
 
 ---
 ## Evaluate and Monitor
@@ -52,7 +52,7 @@ Servers &rarr; Virtual Machines &rarr; Containers &rarr; _Functions_
 - Servers are hard to scale; you can only go so far vertically
 - We solved that by making commodity servers and stacking them horizontally
 - They commodified to the point that renting them became more cost effective
- 
+
 ---
 ## 👾 Virtual Machines
 
@@ -61,14 +61,14 @@ Servers &rarr; Virtual Machines &rarr; Containers &rarr; _Functions_
 
 ---
 ## 👾👾  Containers
-- Share the benefits of VMs 
+- Share the benefits of VMs
 - Coldstart speed is in milliseconds
 
 ---
 ## Servers Stuff Happens…
 
 - Stuff goes down &rarr; region and/or provider failover time in a DNS window
-- Stuff gets throttled &rarr; retrys and timeouts are par for the course
+- Stuff gets throttled &rarr; retries and timeouts are par for the course
 - Stuff gets spiked &rarr; means you have to figure out load balancing big ass fleets of servers
 - Stuff gets shipped &rarr; means you have to have zero downtime deploys of those big ass fleets of servers
 
@@ -78,7 +78,7 @@ Servers &rarr; Virtual Machines &rarr; Containers &rarr; _Functions_
 AWS Lambda ships in 2014 the idea that the **smallest unite of compute is a Function**
 
 ---
-It is important to notice the _server_ metaphor is not longer the baseline infrastructure primative for compute in this model
+It is important to notice the _server_ metaphor is not longer the baseline infrastructure primitive for compute in this model
 
 <strike>Servers</strike> &rarr; <strike>Virtual Machines</strike> &rarr; <strike>Containers</strike> &rarr; Functions
 
@@ -92,8 +92,8 @@ It is important to notice the _server_ metaphor is not longer the baseline infra
 ---
 ## Functions ✅
 
-- Deployments are in seconds, instantly available to theoretical infinate load
-- Isolation means these are super antifragile systems; downtime is hard to achieve 
+- Deployments are in seconds, instantly available to theoretical infinite load
+- Isolation means these are super anti-fragile systems; downtime is hard to achieve
 - Configuration can be very lightweight and more portable
 
 ---
@@ -103,6 +103,6 @@ It is important to notice the _server_ metaphor is not longer the baseline infra
 - Throttles still happen; only 1000 concurrent requests are allowed
 
 ---
-## Pricing 
+## Pricing
 
 1st million invocations are free and then its $0.10 per million invocations thereafter. That means 10 million invocations is under $1 a month.

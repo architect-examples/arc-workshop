@@ -56,12 +56,12 @@ Things to notice:
 - `heartbeats` is the function name
 - `rate(5 minutes)` is the function execution interval
 
-And run 
+And run
 ```
 npm run create
-``` 
+```
 
-This will generate: 
+This will generate:
 
 - `arc-workshop-staging-heartbeats` DynamoDB table
 - `arc-workshop-production-heartbeats` DynamoDB table
@@ -71,7 +71,7 @@ This will generate:
 ---
 ### 3. Be Chill for Five
 
-Let's wait to see the Lambda executation logs.
+Let's wait to see the Lambda execution logs.
 
 ---
 ### 4. Checkout the Logs
@@ -84,7 +84,7 @@ Let's wait to see the Lambda executation logs.
 ---
 ### 5. Ping
 
-Lets ping our domain! 
+Lets ping our domain!
 
 ```bash
 cd src/scheduled/heartbeats
@@ -148,4 +148,3 @@ exports.handler = arc.scheduled(handler)
 ```
 
 Deploy to `staging` with `npm run deploy`.
-

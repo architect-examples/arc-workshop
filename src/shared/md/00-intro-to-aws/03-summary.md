@@ -13,15 +13,15 @@
 - Lambda greengrass
 - SQS
 - Kinesis
-- Athena 
+- Athena
 
 ---
 ## Cloud Ethos
 
-- *ops are job responsibilties
-- principles vs practices 
+- *ops are job responsibilities
+- principles vs practices
 
-> Extra credit: explore the AWS infra services: codestar, codecommit code pipeline, code build 
+> Extra credit: explore the AWS infra services: codestar, codecommit code pipeline, code build
 
 ---
 ## Next steps!!

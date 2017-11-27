@@ -1,6 +1,6 @@
 Databases in the past few years have evolved into fully managed cloud services. DynamoDB is an extremely powerful product with very desirable characteristics for a persistent data storage solution. In this section we will fully exploring building for DynamoDB using JSF Architect.
 
-In these exercises we will design a small microblogging service. Through these exercises we will model different data relationships, create local and deployment infrastructure. We will use test driven development to guide these exercises as they are less visually oriented. 
+In these exercises we will design a small microblogging service. Through these exercises we will model different data relationships, create local and deployment infrastructure. We will use test driven development to guide these exercises as they are less visually oriented.
 
 ---
 ### 1. Setup
@@ -76,7 +76,7 @@ This `.arc` file defines two tables:
 Things to notice:
 
 - Table columns are indented by two spaces
-- The first column is called the `primary partition key`; it is also sometimes reffered to as the `hash key`
+- The first column is called the `primary partition key`; it is also sometimes referred to as the `hash key`
 - The `partition key` type with JSF Architect defined tables is either `*String` or `*Number`
 - The second column is, optionally, a `sort key`; also sometimes called a `range key`
 - The `sort key` can be either `**String` or `**Number`
@@ -93,7 +93,7 @@ Execute `npm run create` to create the tables. This can take a minute.
 
 JSF Architect creates two tables for every table defined in the `.arc` file. One for `staging` and one for `production`.
 
-In DynamoDB the tables would follow the naming convention: `appname-production-tablename` so for the exmaple above we will see the tables created:
+In DynamoDB the tables would follow the naming convention: `appname-production-tablename` so for the example above we will see the tables created:
 
 - `arc-workshop-production-posts`
 - `arc-workshop-staging-posts`

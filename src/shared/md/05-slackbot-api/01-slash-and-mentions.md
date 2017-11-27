@@ -28,7 +28,7 @@ exports.handler = function _event(event, context, callback) {
 }
 ```
 
-Deploy your changes using `npm run deploy` and check out the results with `Cuteface Staging`. Once satisfied this functionality meets your requirements upgrade the `production` bot app by running `ARC_DEPLOY=production npm run deploy`. 
+Deploy your changes using `npm run deploy` and check out the results with `Cuteface Staging`. Once satisfied this functionality meets your requirements upgrade the `production` bot app by running `ARC_DEPLOY=production npm run deploy`.
 
 Things to notice:
 
@@ -40,7 +40,7 @@ Things to notice:
 ---
 ### Listen for Mentions
 
-Slash commands are great because they are private by default and work anywhere. Using the Slack Events API we can build more sophisticated conversational user experiences but we have to set the stage first. 
+Slash commands are great because they are private by default and work anywhere. Using the Slack Events API we can build more sophisticated conversational user experiences but we have to set the stage first.
 
 0. Return to the app page for `Cuteface Staging` on [api.slack.com/apps](https://api.slack.com/apps)
 1. Click on **Event Subscriptions**, ensure they are enabled, and the URL points to something like `https://xxx.execute-api.us-east-1.amazonaws.com/staging/cuteface/events`
@@ -60,31 +60,31 @@ By default bot users do not get any events until they are invited into a channel
 3. Go back to your Slack client and post the following in the channel you invited the bot to: `mention @cuteface_staging`
 4. Go back to Cloudwatch and have a look at the event data for a mention
 
-The payload for a mention looks somethign like this:
+The payload for a mention looks something like this:
 
 ```javascript
-{ 
-  "token": "QZrWWM2djb8XxVyigM36ORpk", 
-  "team_id": "T7V0DLJQL", 
-  "api_app_id": "A85E8CWG5", 
-  "event": { 
-    "type": "message", 
-    "user": "U7V0ESEDA", 
-    "text": "mention <@U84LB1LQG>", 
-    "ts": "1511582476.000065", 
-    "channel": "C7UUB2V6E", 
-    "event_ts": "1511582476.000065" 
-  }, 
-  "type": "event_callback", 
-  "event_id": "Ev84QKGNGH", 
-  "event_time": 1511582476, 
+{
+  "token": "QZrWWM2djb8XxVyigM36ORpk",
+  "team_id": "T7V0DLJQL",
+  "api_app_id": "A85E8CWG5",
+  "event": {
+    "type": "message",
+    "user": "U7V0ESEDA",
+    "text": "mention <@U84LB1LQG>",
+    "ts": "1511582476.000065",
+    "channel": "C7UUB2V6E",
+    "event_ts": "1511582476.000065"
+  },
+  "type": "event_callback",
+  "event_id": "Ev84QKGNGH",
+  "event_time": 1511582476,
   "authed_users": [
     "U84LB1LQG"
-  ] 
+  ]
  }
 ```
 
-We need to parse out the user id and see if it is us. Yes this is a bit quirky. 
+We need to parse out the user id and see if it is us. Yes this is a bit quirky.
 
 ```javascript
 // src/slack/cuteface-events/index.js
@@ -102,9 +102,9 @@ exports.handler = function _event(event, context, callback) {
     }
     else {
       console.log('no mention')
-    } 
+    }
     callback()
-  } 
+  }
 }
 ```
 
@@ -113,7 +113,7 @@ Deploy with `npm run deploy` and test your handy work by sending some mention me
 Things to notice:
 
 - This handler is also a vanilla Lambda function; we end execution by calling `callback()`
-- AWS Lambda sends us an `event` and, nested within, is the Slack `event.event` (this is  fine ;) 
+- AWS Lambda sends us an `event` and, nested within, is the Slack `event.event` (this is  fine ;)
 - We use a basic `RegExp` to parse out if there is any mentions and then use it `console.log` any matches
 
 ---
@@ -121,7 +121,7 @@ Things to notice:
 
 We have an array of Slack user ids but we do not know who is who yet. JSF Architect pre-installs [slack](https://www.npmjs.com/package/slack) so we can use the Web API to figure out if any of these user ids represent our bot user.  
 
-To make API calls we need a token. 
+To make API calls we need a token.
 
 0. Slack helpfully issues us a testing token under **OAuth and Permssions** copy **Bot User OAuth Access Token**
 1. Open up the AWS Console and navigate to `arc-workshop-staging-slack-cuteface-events` and copy that token value into a new **Environment Variable** named `SLACK_TESTING_TOKEN`
@@ -170,8 +170,8 @@ exports.handler = function _event(event, context, callback) {
     else {
       console.log('no mention so lets bail execution')
       callback()
-    } 
-  } 
+    }
+  }
 }
 ```
 
@@ -179,11 +179,11 @@ Deploy with `npm run deploy` and test your handy work by sending some mention me
 
 Things to notice:
 
-- We only have 3 seconds to respond to Slack before it retrys so we move as fast as possible by checking the mentions in parallel
-- The env variable we created `SLACK_TESTING_TOKEN` will only work for our workspace installation so we still need to do some work to save and look up tokens; we'll do that later by implmenting **Add to Slack**
+- We only have 3 seconds to respond to Slack before it retries so we move as fast as possible by checking the mentions in parallel
+- The env variable we created `SLACK_TESTING_TOKEN` will only work for our workspace installation so we still need to do some work to save and look up tokens; we'll do that later by implementing **Add to Slack**
 
 ---
-### Bot Identificaiton Algorythm 
+### Bot Identificaiton Algorythm
 
 Identifying our bot user from a regular user is up to you! Inside the `_done` callback we loop through `results` looking for `user.name === 'cuteface_staging` or, if `process.env.NODE_ENV === 'production` just `user.name === 'cuteface'`. This won't be suitable for a production deployed bot app because names can, and do, change in Slack. Once we get to **Add to Slack** we can compare `user.id` to a value saved in Dynamo to be absolutely sure this is the bot we're looking for. 😅
 
@@ -232,8 +232,8 @@ exports.handler = function _event(event, context, callback) {
     else {
       console.log('no mention so lets bail execution')
       callback()
-    } 
-  } 
+    }
+  }
 }
 ```
 

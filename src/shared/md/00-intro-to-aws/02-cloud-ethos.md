@@ -9,8 +9,8 @@
 ## *Ops
 
 - Ops *is not* about a particular tool or even skillset
-- Ops *is* the unifiation of the operations, reliability, and qa teams with engineering
-- Devops taught us ops should *not* be a siloed team 
+- Ops *is* the unification of the operations, reliability, and qa teams with engineering
+- Devops taught us ops should *not* be a silo-ed team
 
 ---
 ### Bottom Line 🎯
@@ -29,7 +29,7 @@ As with performance and security, ops is not a line item you can just add to the
 
 ---
 # Security
-The land of acronyms. 
+The land of acronyms.
 
 <style>table#d {font-size:.7em; }</style>
 <table id=d>
@@ -67,7 +67,7 @@ You can't be "fast" without a thing to measure against a baseline
 ## Performance
 
 - Business case: faster software makes for faster conversations
-- Ethics case: emmerging markets and slow internet connections are the norm
+- Ethics case: emerging markets and slow internet connections are the norm
 - Magic case: super responsive software feels like it 'just works' and delights
 
 ---
@@ -116,7 +116,7 @@ Monitoring **is not** logging; it is the practice of keeping an eye on your prod
 
 - Principles *can* change
 - When a **Principle** changes it is an **innovation**
-- When this happens analyists call that event a **disruption**
+- When this happens analysts call that event a **disruption**
 
 > Disruption events predicate large investments. Examples: Mobile, Cloud, Containers, Big Data…
 
@@ -124,7 +124,7 @@ Monitoring **is not** logging; it is the practice of keeping an eye on your prod
 ## Cloud Craft Principles
 
 - automation is key (automate builds, tests, lints, deploys)
-- continuous delivery vs continuous deployment 
+- continuous delivery vs continuous deployment
 - infrastructure as code
 
 ---
@@ -167,5 +167,5 @@ And can scale up without significant changes to tooling, architecture, or develo
 ## Cloud Craft Principles Recap
 
 - automation is key (automate builds, tests, lints, deploys)
-- continuous delivery vs continuous deployment 
+- continuous delivery vs continuous deployment
 - infrastructure as code

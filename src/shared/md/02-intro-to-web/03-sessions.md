@@ -61,7 +61,7 @@ Thing to notice:
 
 ## 3. Increment the Count
 
-JSF Architect has a deliberate rule that any HTTP POST _must_ do an Location 302 redirect. This additional level of isolation enforces that every POST exclusively mutates data and only mutates data. This makes reasoning about your GET routes much easier which can be especially complex with "server"-side rendering. 
+JSF Architect has a deliberate rule that any HTTP POST _must_ do an Location 302 redirect. This additional level of isolation enforces that every POST exclusively mutates data and only mutates data. This makes reasoning about your GET routes much easier which can be especially complex with "server"-side rendering.
 
 Lets edit the count Lambda.
 
@@ -80,9 +80,9 @@ function counter(req, res) {
 exports.handler = arc.html.post(counter)
 ```
 
-> Hat tip to [Marco Rogers](https://twitter.com/polotek) for the resoning that lead to 'POST only mutates rule'
+> Hat tip to [Marco Rogers](https://twitter.com/polotek) for the reasoning that lead to 'POST only mutates rule'
 
 
 ## Summary
 
-Session state is stored in DynamoDB and expires after a week of inactivity. If you want to disable sessions remove `SESSION_TABLE_NAME` environment variable from your Lambda function in the console. 
+Session state is stored in DynamoDB and expires after a week of inactivity. If you want to disable sessions remove `SESSION_TABLE_NAME` environment variable from your Lambda function in the console.

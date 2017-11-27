@@ -1,4 +1,4 @@
-Now that we have an API we can talk to it from the clientside. Typically you'd have clientside JavaScript intercept form posts and delegate to our JSON API appropriately. There are new ways to do this every day and, it seems to this author, we often opt into more complexity than neccessary.
+Now that we have an API we can talk to it from the clientside. Typically you'd have clientside JavaScript intercept form posts and delegate to our JSON API appropriately. There are new ways to do this every day and, it seems to this author, we often opt into more complexity than necessary.
 
 The best way to author clientside JavaScript isn't a question JSF Architect is designed to answer. That's your problem to solve. Some well regarded options include:
 
@@ -30,7 +30,7 @@ get /protected
 post /post
 ```
 
-And run `npm run create` to generate tht route.
+And run `npm run create` to generate the route.
 
 ---
 ### Write the Handler for `text/html` `POST`s
@@ -98,7 +98,7 @@ exports.handler = arc.html.get(protect, route)
 
 Things to notice:
 
-- We added Cross-Site Request Forgery (CSRF) token to the form in a hidden form field 
+- We added Cross-Site Request Forgery (CSRF) token to the form in a hidden form field
 
 ---
 ### Add CSRF Validation

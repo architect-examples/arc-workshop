@@ -1,4 +1,4 @@
-For our first nine steps we will build a very simple website together. [JSF Architect](https://arc.codes) is designed for working incrementally so we will be adding up small tweaks and features as we go. Very quickly you will have built and deployed an infinitely scaling website with isolated staging and production environments hosted on a custom domain you own. 
+For our first nine steps we will build a very simple website together. [JSF Architect](https://arc.codes) is designed for working incrementally so we will be adding up small tweaks and features as we go. Very quickly you will have built and deployed an infinitely scaling website with isolated staging and production environments hosted on a custom domain you own.
 
 ---
 ### 0. Prerequisites
@@ -57,7 +57,7 @@ Open `package.json` in your fav text editor edit `scripts` to look like this:
 We will go through using each of these local workflows soon. (You can probably guess roughly what each command does! ;)
 
 ---
-## 3. Edit `.arc` 
+## 3. Edit `.arc`
 
 Open the `.arc` file you just created up in your editor and save the following contents:
 
@@ -84,7 +84,7 @@ To generate code locally and deploy it to isolated staging and production Lambda
 npm run create
 ```
 
-JSF Architect will take a moment to run. It only creates things if they do not already exist and never destroys anything so its completely safe to run and re-run as you add new things (or if something goes wrong). Sometimes things do go wrong! The cloud can be unpredictable, things get rate limited or throttled and retrys not just common: they should be expected and planned for.
+JSF Architect will take a moment to run. It only creates things if they do not already exist and never destroys anything so its completely safe to run and re-run as you add new things (or if something goes wrong). Sometimes things do go wrong! The cloud can be unpredictable, things get rate limited or throttled and retries not just common: they should be expected and planned for.
 
 ---
 ## 5. Deploy to `staging`
@@ -186,9 +186,9 @@ Open your terminal again and run:
 
 ```
 npm run dns
-``` 
+```
 
-Follow the instructions on your screen. You will need to re-run this command as it progresses through steps. 
+Follow the instructions on your screen. You will need to re-run this command as it progresses through steps.
 
 This command does a few thing on our behalf:
 

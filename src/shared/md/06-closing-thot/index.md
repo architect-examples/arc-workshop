@@ -19,6 +19,7 @@ That was a big day. We conquered a great deal of serverless surface in the AWS e
 
 - Related to the front end S3 and static web sites with CloudFront
 - Key management and automated environment variable handling with KMS
+- global error templates for the web routes in `/shared`
 - scaffolding for tests
 
 ---

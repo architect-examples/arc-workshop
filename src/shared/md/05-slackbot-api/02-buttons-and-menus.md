@@ -1,4 +1,4 @@
-Buttons allow us to quickly compose simple interaction flows with Slack. It's much easier than trying to build generalized artifical intelligence for natural language processing to understand intent. At least for now.
+Buttons allow us to quickly compose simple interaction flows with Slack. It's much easier than trying to build generalized artificial intelligence for natural language processing to understand intent. At least for now.
 
 ---
 ### 1. Add Buttons
@@ -31,7 +31,7 @@ slack.chat.postMessage({
 }, callback)
 ```          
 
-Nice. Test your work on `staging` by running `npm run deploy`. You'll know it worked if you see buttons! If you click a button you'll see text that reads `hi from button press`. 
+Nice. Test your work on `staging` by running `npm run deploy`. You'll know it worked if you see buttons! If you click a button you'll see text that reads `hi from button press`.
 
 ---
 ### 2. Inspect the Payload
@@ -49,7 +49,7 @@ exports.handler = function _action(event, context, callback) {
 }
 ```
 
-Go back to Slack, mention the bot, click a button, and go back to Cloudwatch to see the JSON formated in slightly more readable way.
+Go back to Slack, mention the bot, click a button, and go back to Cloudwatch to see the JSON formatted in slightly more readable way.
 
 ---
 ### 3. Respond Dynamically

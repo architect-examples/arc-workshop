@@ -8,30 +8,30 @@ Messaging apps have taken the workspace by storm and Slack leads the way as a tr
 ---
 ### Slack Web API
 
-The Slack Web API is extrememly powerful and the design of its architecture fascinating in that it defies many commonly held 'best practices'. 
+The Slack Web API is extremely powerful and the design of its architecture fascinating in that it defies many commonly held 'best practices'.
 
-- It is an RPC over HTTP API (it is not RESTful) 
+- It is an RPC over HTTP API (it is not RESTful)
 - Organized by namespaced system entities (E.g.`conversation` or `message`)
 - It accepts _either_ `GET` or `POST` requests to invoke a method; subsequently, parameters can be either query string or form variables
 
-If you use one of the amazing Slack client libraries you will not be exposed to any of these details but I think it still matters to understand this because while the above sounds contrarian to many practices advocated today it turns out clients authored against this style of API are incredibly small and easy to reason about. 
+If you use one of the amazing Slack client libraries you will not be exposed to any of these details but I think it still matters to understand this because while the above sounds contrarian to many practices advocated today it turns out clients authored against this style of API are incredibly small and easy to reason about.
 
 Food for thought. 🍒
 
 ---
 ### Events API
 
-The opening moments of the Slack platform was based on web sockets (aka the [RTM API](https://api.slack.com/rtm)) which works really well for full duplex (read and write) communications. Sockets however require keeping a connection to every client open. This can use a lot of memory. Worse, web sockets can disconnect for any number of reasons so retry logic is required. Anytime retry logic is involved you need bake in exponential backoffs. These complexities have been aleiviated with the Events API which are simple webhooks. Whenever an event happens Slack hits a URL you configure with a JSON payload. 
+The opening moments of the Slack platform was based on web sockets (aka the [RTM API](https://api.slack.com/rtm)) which works really well for full duplex (read and write) communications. Sockets however require keeping a connection to every client open. This can use a lot of memory. Worse, web sockets can disconnect for any number of reasons so retry logic is required. Anytime retry logic is involved you need bake in exponential backoffs. These complexities have been alleviated with the Events API which are simple webhooks. Whenever an event happens Slack hits a URL you configure with a JSON payload.
 
 ---
 ### Actions and Options
 
-Once you start sending and receiving messages with Slack you will probably want to render a button or dropdown menu. Slack handles button clicks with an Actions URL and it allows you to dynamically populate dropdown menus with the Options URL. You can also spawn dialogs to group buttons and menus and they've announced that further form elements are on the way. 
+Once you start sending and receiving messages with Slack you will probably want to render a button or dropdown menu. Slack handles button clicks with an Actions URL and it allows you to dynamically populate dropdown menus with the Options URL. You can also spawn dialogs to group buttons and menus and they've announced that further form elements are on the way.
 
 ---
 ### Slash Commands
 
-You can use the Events API to listen for specific `@mentions` of your bot to respond or you can create a special Slash Command handler. It too is a webhook URL and probably the fastest way to build an interacton with Slack.
+You can use the Events API to listen for specific `@mentions` of your bot to respond or you can create a special Slash Command handler. It too is a webhook URL and probably the fastest way to build an interaction with Slack.
 
 ---
 ### Installing with Add to Slack
@@ -46,13 +46,13 @@ Slack users can be authenticated using **Sign in with Slack** oAuth flow.
 ---
 ### Testing Strategies
 
-- Slack recently released a tool named Steno for testing locally. 
+- Slack recently released a tool named Steno for testing locally.
 - JSF Architect automatically creates both `staging` and `production` URLs making it trivial to create a bot user for each environment; its a bit of a pain because you need to manage two sets of Slack API secrets but it is vastly prefferable than 'doin it live' 🤠
 
 ---
 ### 1. Slack Setup
 
-0. To build a Slack app we need to setup credentials and a Slack where you have authority to install an app. If you do not have a Slack where you can do that you'll need to crate one and login. 
+0. To build a Slack app we need to setup credentials and a Slack where you have authority to install an app. If you do not have a Slack where you can do that you'll need to crate one and login.
 1. Once ready, navigate to [api.slack.com/apps](https://api.slack.com/apps) and click the big green button **Create New App**. (If you do not see that button you'll need to login in that browser.)
 2. Enter an **App Name** of `Cuteface Staging` and choose the **Slack Development Workspace** where we'll be prototyping and click **Create App**
 
@@ -106,7 +106,7 @@ You know the drill!
 ---
 ### 4. Define `.arc`
 
-JSF Architect bakes in first class Slack support. 
+JSF Architect bakes in first class Slack support.
 
 ```.arc
 @app
@@ -121,7 +121,7 @@ And run `npm run create` to generate the endpoint URLs.
 Things to notice:
 
 - We re-used `arc-workshop` namespace yet again so everything will be scoped under those API Gateway deployments
-- The `@slack` directive accepts any number of names seperated by a newline so you can create more than one bot in the same project
+- The `@slack` directive accepts any number of names separated by a newline so you can create more than one bot in the same project
 
 ---
 ### 5. Slack URL Setup
@@ -138,7 +138,8 @@ Return to the app page for `Cuteface Staging` on [api.slack.com/apps](https://ap
 7. Click on **OAuth and Permissions** in the left nav and click **Install App to Workspace**
 8. Go to your Slack workspace and give `/cute` a try ---it should print 'hi' in response
 
-I have good news and bad news. The good news is your `staging` bot is setup. The bad news is you need to repeat the steps above but with `production` URLs pointing at the offical `Cuteface` bot app. 
+I have good news and bad news. The good news is your `staging` bot is setup. The bad news is you need to repeat the steps above but with `production` URLs pointing at the official `Cuteface` bot app.
 
 Rock on. 🎸🔥
 
+---

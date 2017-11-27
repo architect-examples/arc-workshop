@@ -8,10 +8,12 @@ This is a stateful API, as in, we have a session. Similar to the HTML routes cre
 ---
 ### 2. Parameter Sanitization and Validation
 
-A common attack vector is to post malicious data to HTTP API endpoints. There are many libraries for input santization and parameter validation. Make sure all the writes have check for cross site scripting and proper values. A few libraries to try out:
+A common attack vector is to post malicious data to HTTP API endpoints. There are many libraries for input sanitization and parameter validation. Make sure all the writes have check for cross site scripting and proper values.
+
+A few libraries on npm to try out:
 
 - xss
-- smallwins/validate
+- @smallwins/validate
 - joi
 
 ---

@@ -1,4 +1,4 @@
-To quickly recap we've configured a bot user to respond to slash commands and mentions with interacive messages. Lets get this thing ready for production by implmenting **Add to Slack**.
+To quickly recap we've configured a bot user to respond to slash commands and mentions with interactive messages. Lets get this thing ready for production by implementing **Add to Slack**.
 
 ---
 ### 1. Create a Landing Page
@@ -32,12 +32,12 @@ Before we get too excited we have some more configuration work to do. In the roo
 ```.arc
 @testing
 SLACK_CLIENT_ID "1111111111.11111111111"
-SLACK_CLIENT_SECRET xxx 
+SLACK_CLIENT_SECRET xxx
 ```
 
 You can find client id and secret in the Slack configuration page under **Basic Information** &rarr; **App Credentials**.
 
-Immediately add `.arc-env` to your `.gitignore` to ensure you do not accidently share your secrets on Github. `.arc-env` will be read by the sandbox command in `npm start` which, is JavaScript, so we need to quote the `SLACK_CLIENT_ID` so it doesn't get rounded up. 
+Immediately add `.arc-env` to your `.gitignore` to ensure you do not accidentally share your secrets on Github. `.arc-env` will be read by the sandbox command in `npm start` which, is JavaScript, so we need to quote the `SLACK_CLIENT_ID` so it doesn't get rounded up.
 
 ---
 ### 3. Deploy Secrets
@@ -61,10 +61,10 @@ Now we're ready to render the button. Lets create a pure helper function for doi
 module.exports = function button(clientID, redirect, scopes) {
   return `
     <a href="https://slack.com/oauth/authorize?scope=${scopes}&client_id=${clientID}&redirect_uri=${redirect}">
-      <img alt="Add to Slack" 
-        height="40" 
-        width="139" 
-        src="https://platform.slack-edge.com/img/add_to_slack.png" 
+      <img alt="Add to Slack"
+        height="40"
+        width="139"
+        src="https://platform.slack-edge.com/img/add_to_slack.png"
         srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x">
     </a>
   `
@@ -77,13 +77,13 @@ And a second helper function for getting the appropriate redirect URL.
 ```javascript
 module.exports = function getRedirect() {
   if (process.env.NODE_ENV === 'testing') {
-    return 'http://localhost:3333/add-to-slack' 
+    return 'http://localhost:3333/add-to-slack'
   }
   else if (process.env.NODE_ENV === 'staging') {
-    return 'MY PROD DOMAIN/staging/add-to-slack' 
+    return 'MY PROD DOMAIN/staging/add-to-slack'
   }
   else if (process.env.NODE_ENV === 'production') {
-    return 'MY PROD DOMAIN/production/add-to-slack' 
+    return 'MY PROD DOMAIN/production/add-to-slack'
   }
   else {
     throw Error('unknown process.env.NODE_ENV')
@@ -129,14 +129,14 @@ var getRedirect = require('./_get-redirect')
 
 function oAuth(req, res, next) {
   if (req.query.code) {
-    // get an access token 
+    // get an access token
     res({
       html: 'cool we got a code'
     })
   }
   else {
     // continue execution and render the button
-    next() 
+    next()
   }
 }
 
@@ -187,7 +187,7 @@ var arcPath = path.join(__dirname, '..', '.arc')
 module.exports = data(arcPath)
 ```
 
-And update our middlware to persist data:
+And update our middleware to persist data:
 
 ```javascript
 var waterfall = require('run-waterfall')
@@ -219,7 +219,7 @@ module.exports = function oAuth(req, res, next) {
           staging,
         }, callback)
       },
-    ], 
+    ],
     function _done(err, result) {
       if (err) {
         console.log(err)
@@ -228,13 +228,13 @@ module.exports = function oAuth(req, res, next) {
       else {
         res({
           html: 'successfully saved bot info!'
-        }) 
+        })
       }
     })
   }
   else {
     // continue execution and render the button
-    next() 
+    next()
   }
 }
 ```

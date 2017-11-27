@@ -1,4 +1,4 @@
-Before we start writing data to the cloud lets get things setup for local development. 
+Before we start writing data to the cloud lets get things setup for local development.
 
 ---
 ### 1. Database CRUD
@@ -26,7 +26,7 @@ We'll revisit the repl again soon!
 ---
 ### 3. Test Sandbox
 
-Lets write some tests against a local sandbox. Open up `test/env-test.js` amd add the following env check test:
+Lets write some tests against a local sandbox. Open up `test/env-test.js` and add the following env check test:
 
 ```javascript
 var data = require('../')
@@ -100,10 +100,11 @@ The generated DynamoDB client has three hidden helper functions:
 
 - `data._name` is a helper function that accepts a table name and returns it normalized for the current runtime
 - `data._db` we saw above, gives us access to a raw DynamoDB instance; this is the lowest level interface in `aws-sdk`
-- `data._doc` is an instance of `DynamoDB.DocumentCLient`; slightly higher level client that is much easier on the eyes to use 
+- `data._doc` is an instance of `DynamoDB.DocumentCLient`; slightly higher level client that is much easier on the eyes to use
 
 Lets review usage of each of these methods in turn.
 
+---
 ### ℹ️ `data._name`
 
 ```javascript
@@ -117,6 +118,8 @@ test('get name', t=> {
 })
 
 ```
+
+---
 ### 💾 `data._db`
 
 An instance of [`DynamoDB`](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB.html). Anything you want to do with Dynamo can be done with it but it often has more verbose and sometimes confusing syntax.
@@ -133,7 +136,7 @@ test('describe posts', t=> {
   t.plan(1)
   data._db.describeTable({
     TableName: postsTableName,
-  }, 
+  },
   function _desc(err, result) {
     if (err) {
       t.fail(err)
@@ -148,7 +151,7 @@ test('describe posts', t=> {
 
 Copy the test above and modify to try out `data._db.listTables` method.
 
-
+---
 ### 📄 `data._doc`
 
 An instance of [`DynamoDB.DocumentClient`](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB/DocumentClient.html) which provides a cleaner interface for working with entities and collections.

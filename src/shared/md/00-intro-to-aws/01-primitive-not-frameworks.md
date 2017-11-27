@@ -1,12 +1,12 @@
 ## Preface: Mental Models
 
-In physics we describe light in terms of particals and waves. Neither of these things are precisely true but both are useful *models* for thinking about how light works. 
+In physics we describe light in terms of particles and waves. Neither of these things are precisely true but both are useful *models* for thinking about how light works.
 
 
 ---
 ## Preface: Mental Models
 A mental model is way of approaching thinking around a how a particular idea or topic works. It is a technique of self directed empathy to aide in understanding complex systems better and make better decisions for creating desirable outcomes in those systems.
-  
+
 ---
 ## Preface: Mental Models
 Awesome links:
@@ -53,7 +53,7 @@ table#c tr td {
 }
 </style>
 <table width=100% id=c>
-<tr> 
+<tr>
   <th style=width:150px;>Primitive</th>
   <th style=width:150px;>Product</th>
 </tr>
@@ -95,7 +95,7 @@ table#c tr td {
 - Performance
 - Scale
 
-Can your business commodatize these vectors faster and cheaper than AWS?
+Can your business commoditize these vectors faster and cheaper than AWS?
 
 ---
 ## Mental Model
@@ -109,8 +109,8 @@ table#b tr td {
 }
 </style>
 <table id=b>
-<tr> 
-  <th style=width:150px;>Primative</th>
+<tr>
+  <th style=width:150px;>Primitive</th>
   <th style=width:150px;>Self Managed</th>
   <th style=width:200px;>Fully Managed</th>
   <th>&nbsp;</th>
@@ -131,7 +131,7 @@ table#b tr td {
   <td>Database</td>
   <td>Postgres</td>
   <td>DyanmoDB </td>
-  <td>Configured auto scaling pay reads/writes provisinoed capacity</td>
+  <td>Configured auto scaling pay reads/writes provisioned capacity</td>
 </tr>
 <tr>
   <td>HTTP</td>
@@ -178,10 +178,10 @@ table#d tr td {
 <table width=100% id=d>
 <tr>
   <th>Pattern</th>
-  <th>Primative</th>
+  <th>Primitive</th>
   <th>Product</th>
 </tr>
-<tr> 
+<tr>
   <td style=width:150px;>Model</td>
   <td style=width:150px;>Database</td>
   <td style=width:150px;>DynamoDB</td>
@@ -205,10 +205,10 @@ table#d tr td {
 </a>
 
 ---
-### Composition over Inheritance 
+### Composition over Inheritance
 <div style=padding-left:150px;font-size:.6em;text-align:left;>
-✅  Primitives are flexable and compose to powerful solutions<br>
-✅  Frameworks tradeoff flexability for deliberate constraint<br>
+✅  Primitives are flexible and compose to powerful solutions<br>
+✅  Frameworks tradeoff flexibility for deliberate constraint<br>
 ✅  <span class=high>**Frameworks** are composed of **Primitives** implementing **Patterns**</span><br>
 </div>
 ---
@@ -227,4 +227,3 @@ Building an **App** is building a non generalized **Framework** for your **Produ
 * The cloud does not negate principles; it's just a new player in our ever-changing implementing practices
 </blockquote>
 </div>
-
