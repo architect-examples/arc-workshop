@@ -68,7 +68,7 @@ Things to notice:
 ---
 ### Create a Form
 
-Let's build an HTML form on the `get /protected` route for now.
+Let's build a basic HTML form on the `get /protected` route for now.
 
 ```javascript
 // src/html/get-protected/index.js
@@ -103,20 +103,63 @@ Things to notice:
 ---
 ### Add CSRF Validation
 
+We need to ensure this is a legit HTTP request and not some evil hax0r. JSF Architect makes this pretty easy. We need to check the token with some code like this:
+
+```javascript
+// src/html/post-post/index.js
+var arc = require('@architect/functions')
+var data = require('@architect/shared/data')
+
+function csrf(req, res, next) {
+  if (req._verify(req.body.csrf)) {
+    next()
+  }
+  else {
+    res({
+      location: req._url('/')
+    })
+  }
+}
+
+function route(req, res) {
+  data.posts.put(req.body, function _put(err, results) {
+    if (err) {
+      res(err)
+    }
+    else {
+      res({
+        location: req._url('/')
+      })
+    }
+  })
+}
+
+exports.handler = arc.html.post(csrf, route)
+```
+Things to notice:
+
+- We created middleware named `csrf` to verify the token
+- We used `req._verify` to verify the token 💅
+
+Nice work! ⚔️
 
 ---
 ### List Posts
 
+List the posts on `/`. Make em nice!
+
 ---
 ### Wire up Clientside JS
 
-This is the easy part.
+This is the easy part. Here's a starter function using vanilla clientside JS:
 
 ```html
 <script>
-postForm.onSubmit.addEventListener('submit', function _submit(e) {
+document.forms[0].addEventListener('submit', function _submit(e) {
   e.preventDefault()
-  console.log(postForm.values)
+  // read form values here
+  // validate and santize them
+  // use AJAX (XMLHttpRequest or fetch) to POST them to /api/post-post as ContentType: application/json
 })
 </script>
 ```
