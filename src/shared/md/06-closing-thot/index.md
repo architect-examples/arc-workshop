@@ -56,7 +56,7 @@ That was a big day. We conquered a great deal of serverless surface in the AWS e
 
 ---
 ### Become a Contributor
-#### JSF Architect is Open Source **and** Open Governance: we want your help!
+JSF Architect is Open Source and the only serverless project with Open Governance: we want your help!
 
 ---
 ### Become a Contributor
