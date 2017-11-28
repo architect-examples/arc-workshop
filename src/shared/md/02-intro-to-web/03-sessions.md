@@ -38,7 +38,7 @@ Open up the index file and lets add count variable and a form to increment it.
 // ./src/html/get-index/index.js
 var arc = require('@architect/functions')
 var layout = require('@architect/shared/layout')
-var log = require('@architect/shared/log')
+var log = require('@architect/shared/middleware/log')
 
 function index(req, res) {
   var body = `

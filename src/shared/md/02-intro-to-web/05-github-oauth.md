@@ -142,9 +142,9 @@ module.exports = function layout(req, body) {
     {href:req._url('/'), title:'home', active: req.path === '/'},
     {href:req._url('/about'), title:'about', active: req.path != '/'},
   ] 
-  nav.push(login())
   var item = i=> `<li class="nav-item${i.active? ' active': ''}"><a href=${i.href}>${i.title}</a></li>`
   var menu = nav.map(item)
+  menu.push(login())
   return `
 <!doctype html>
 <html>

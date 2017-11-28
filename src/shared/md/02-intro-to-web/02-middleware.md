@@ -38,7 +38,7 @@ From here we need to include the middleware in our functions that will use it.
 // ./src/html/get-index/index.js
 var arc = require('@architect/functions')
 var layout = require('@architect/shared/layout')
-var log = require('@architect/shared/log')
+var log = require('@architect/shared/middleware/log')
 
 function index(req, res) {
   res({
