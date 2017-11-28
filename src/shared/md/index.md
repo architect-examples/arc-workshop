@@ -40,10 +40,10 @@
 |  9:30 | 10:00 | 🎺  [Introduction to JSF Architect](https://brianleroux.github.com/arc-preso) | Learn how _architecture as text_ trancends _infrastructure as code_    |
 | 10:00 | 11:00 | 🌟  [Intro Web Dev with API Gateway](/02-intro-to-web)                        | `GET`, `POST`, sharing code, middleware, session, errors and oauth     |
 | 11:00 | 11:30 | _Coffee Break_                                                               | &nbsp;                                                                 |
-| 11:30 |  1:00 | 🌟  [Test Driven Intro to DynamoDB](/03-intro-to-ddb)                         | Setup, DB design, reads and writes                                     | 
-|  1:00 |  2:00 | _Lunch_                                                                      | &nbsp;                                                                 |
-|  2:00 |  2:30 | 🌟  [Scheduled Functions](/04-replace-cron)                                   | Ping your domain every five mins and save to your DB                   | 
-|  2:30 |  3:00 | 🌟  [Build and deploy a JSON API](/04-json-service)                           | Implement a local JSON API to your data                                |
+| 11:30 | 12:30 | 🌟  [Test Driven Intro to DynamoDB](/03-intro-to-ddb)                         | Setup, DB design, reads and writes                                     | 
+| 12:30 |  1:30 | _Lunch_                                                                      | &nbsp;                                                                 |
+|  1:30 |  2:00 | 🌟  [Scheduled Functions](/04-replace-cron)                                   | Ping your domain every five mins and save to your DB                   | 
+|  2:00 |  3:00 | 🌟  [Build and deploy a JSON API](/04-json-service)                           | Implement a local JSON API to your data                                |
 |  3:00 |  3:30 | _Coffee Break_                                                               | &nbsp;                                                                 | 
 |  3:30 |  5:00 | 🌟  [Build a Slackbot](/05-slackbot-api)                                      | Install, Login, respond to events, actions, options and slash commands |
 |  5:00 |  5:30 | 🎺  [Closing Thoughts and Next Steps](/06-closing-thot)                       | &nbsp;                                                                 |
