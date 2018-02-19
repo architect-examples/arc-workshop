@@ -43,7 +43,7 @@ var log = require('@architect/shared/middleware/log')
 function index(req, res) {
   var body = `
     <h1>${req.session.count || 0}</h1>
-    <form action=/count method=post>
+    <form action=${req._url('/count')} method=post>
       <button>1up</button>
     </form>
   `
