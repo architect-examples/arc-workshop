@@ -46,10 +46,10 @@ Open `package.json` in your fav text editor edit `scripts` to look like this:
 ```javascript
 {
   "scripts": {
-    "create": "AWS_PROFILE=personal AWS_REGION=us-west-1 arc-create",
-    "deploy": "AWS_PROFILE=personal AWS_REGION=us-west-1 arc-deploy",
-    "start": "NODE_ENV=testing AWS_PROFILE=personal AWS_REGION=us-west-1 arc-sandbox",
-    "dns": "AWS_PROFILE=personal AWS_REGION=us-west-1 arc-dns"
+    "create": "AWS_PROFILE=personal AWS_REGION=us-east-1 arc-create",
+    "deploy": "AWS_PROFILE=personal AWS_REGION=us-east-1 arc-deploy",
+    "start": "NODE_ENV=testing AWS_PROFILE=personal AWS_REGION=us-east-1 arc-sandbox",
+    "dns": "AWS_PROFILE=personal AWS_REGION=us-east-1 arc-dns"
   }
 }
 ```
