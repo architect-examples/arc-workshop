@@ -89,6 +89,8 @@ Tips
 ---
 ### 4. Create Tables
 
+> This step is optional! It costs money. (Less than a cup of coffee per month tho!)
+
 Execute `npm run create` to create the tables. This can take a minute.
 
 JSF Architect creates two tables for every table defined in the `.arc` file. One for `staging` and one for `production`.
