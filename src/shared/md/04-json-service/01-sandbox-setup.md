@@ -35,7 +35,7 @@ Edit `package.json` `scripts`:
 {
   "scripts": {
     "create": "AWS_PROFILE=personal AWS_REGION=us-east-1 arc-create",
-    "test": "NODE_ENV=testing AWS_PROFILE=personal AWS_REGION=us-east-1 tape test/*-test.js | tap-spec",
+    "test": "NODE_ENV=testing AWS_PROFILE=personal AWS_REGION=us-east-1 tape test/*-test.js | tap-spec"
   }
 }
 ```
