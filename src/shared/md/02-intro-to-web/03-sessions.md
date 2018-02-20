@@ -48,7 +48,7 @@ function index(req, res) {
     </form>
   `
   res({
-    html: layout(body)
+    html: layout(req, body)
   })
 }
 
