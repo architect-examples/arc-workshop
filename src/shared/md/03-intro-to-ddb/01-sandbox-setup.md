@@ -129,7 +129,7 @@ Commons methods:
 - `listTables`
 - `describeTable`
 
-Here's an example test to explore using `data._db`:
+Here's another example test to explore using `data._db`:
 
 ```javascript
 test('describe posts', t=> {
@@ -148,8 +148,6 @@ test('describe posts', t=> {
   })
 })
 ```
-
-Copy the test above and modify to try out `data._db.listTables` method.
 
 ---
 ### 📄 `data._doc`
