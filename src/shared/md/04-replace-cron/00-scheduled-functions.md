@@ -27,6 +27,18 @@ touch test/env-test.js
 touch .arc
 ```
 
+And finally setup `npm run` Workflows
+
+Edit `package.json` `scripts`:
+
+```javascript
+{
+  "scripts": {
+    "create": "AWS_PROFILE=personal AWS_REGION=us-east-1 arc-create",
+    "deploy": "AWS_PROFILE=personal AWS_REGION=us-east-1 arc-deploy"
+  }
+}
+
 ---
 ### 2. Architecture as Text
 
