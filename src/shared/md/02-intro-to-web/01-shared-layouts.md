@@ -65,7 +65,7 @@ function index(req, res) {
   })
 }
 
-exports.handler = arc.html.get(index)
+exports.handler = arc.html.get(route)
 ```
 
 Before running the local test server or upon deployment JSF Architect will automatically copy everything in `./src/shared` to each functions `./node_modules/@architect/shared` to enable this functionality. 
@@ -127,7 +127,7 @@ function index(req, res) {
   })
 }
 
-exports.handler = arc.html.get(index)
+exports.handler = arc.html.get(route)
 ```
 
 The refactored code above creates a new function called `render` from the `layout` function with the current request `req`  bound as the first parameter. We then call `render` with the content to display.
