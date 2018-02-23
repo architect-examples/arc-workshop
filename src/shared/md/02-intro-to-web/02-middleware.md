@@ -59,6 +59,7 @@ Things to notice:
 
 Lets deploy the code by running `npm run deploy` and hit the url a few times. 
 
-Now in your browser open up the AWS Console &rarr; Lambda &rarr; [your lambda function] &rarr; click on the Monitoring tab &rarr; View logs in CloudWatch
+Now in your browser open up the AWS Console &rarr; Lambda &rarr; [your lambda function] &rarr; click on the Monitoring tab &rarr; 
+Jump to Logs
 
 ---
