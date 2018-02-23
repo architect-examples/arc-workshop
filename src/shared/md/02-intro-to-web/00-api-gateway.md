@@ -107,7 +107,7 @@ Things to notice:
 - Every route is one function
 - Each function gets two totally isolated Lambda functions for deployment: one for `staging` and one for `production`
 
-Open up `src/html/get-index` and you can see the signature is very similar to Express.
+Open up `src/html/get-index/index.js` and you can see the signature is very similar to Express.
 
 ```javascript
 var arc = require('@architect/functions')
