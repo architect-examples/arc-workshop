@@ -22,13 +22,13 @@ module.exports = function _presentationHTML(req) {
 }
 
 var testingAssets = `
-<link rel="stylesheet" href="/reveal.css">
-<link rel="stylesheet" href="/white.css">
-<link rel="stylesheet" href="/default.css">
-<script src="/reveal.js"></script>
-<script src="/highlight.js"></script>
-<script src="/highlight_002.js"></script>
-<script src="/notes.js"></script>
+<link rel="stylesheet" href="/css/reveal.css">
+<link rel="stylesheet" href="/css/white.css">
+<link rel="stylesheet" href="/css/default.css">
+<script src="/js/reveal.js"></script>
+<script src="/js/highlight.js"></script>
+<script src="/js/highlight_002.js"></script>
+<script src="/js/notes.js"></script>
 `
 
 var liveAssets = `

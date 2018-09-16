@@ -1,5 +1,5 @@
 {
-  "name": "arc-workshop-get-000page",
+  "name": "viewsource-get-css-000file",
   "dependencies": {
     "@architect/data": "^2.0.5",
     "@architect/functions": "^1.9.2"

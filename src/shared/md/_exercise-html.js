@@ -34,11 +34,11 @@ module.exports = function _exerciseHTML(req) {
     return `<li><a href=${href}>${title}</a></li>`
   }
   var testing = process.env.NODE_ENV === 'testing'
-  var bootstrap = testing? '/bootstrap.css' : 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'
+  var bootstrap = testing? '/css/bootstrap.css' : 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'
   var js = {
-    jquery: testing? '/jquery.js' : 'https://code.jquery.com/jquery-1.12.0.min.js',
-    bootstrap: testing? '/bootstrap.js' : 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js',
-    prism: testing? '/prism.js' : 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.4/prism.min.js'
+    jquery: testing? '/js/jquery.js' : 'https://code.jquery.com/jquery-1.12.0.min.js',
+    bootstrap: testing? '/js/bootstrap.js' : 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js',
+    prism: testing? '/js/prism.js' : 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.4/prism.min.js'
   }
   return `
 <!DOCTYPE html>

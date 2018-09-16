@@ -1,23 +1,13 @@
 {
   "name": "arc-workshop",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "create": "AWS_REGION=us-east-1 AWS_PROFILE=personal arc-create",
-    "start": "NODE_ENV=testing AWS_REGION=us-east-1 AWS_PROFILE=personal nodemon --watch src -e js,css,md --exec arc-sandbox",
-    "dns": "AWS_REGION=us-east-1 AWS_PROFILE=personal arc-dns",
-    "deploy": "AWS_REGION=us-east-1 AWS_PROFILE=personal arc-prototype-deploy"
-  },
-  "keywords": [],
   "author": "Brian LeRoux <b@brian.io>",
   "license": "Apache-2.0",
   "dependencies": {
-    "@architect/workflows": "^1.1.24",
-    "arc-prototype-deploy": "^1.3.0",
-    "marked": "^0.3.6",
-    "nodemon": "^1.12.1",
-    "tap-spec": "^4.1.1",
-    "tape": "^4.8.0"
+    "@architect/workflows": "^3.4.2",
+    "marked": "^0.3.19",
+    "nodemon": "^1.18.4",
+    "tap-spec": "^4.1.2",
+    "tape": "^4.9.1"
   }
 }

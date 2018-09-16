@@ -1,5 +1,9 @@
 @app
-arc-workshop
+viewsource
+
+@aws
+profile personal
+region us-west-1
 
 @domain
 viewsource.codes
@@ -7,3 +11,9 @@ viewsource.codes
 @html
 get /
 get /:page
+
+@js
+/js/:file
+
+@css
+/css/:file
